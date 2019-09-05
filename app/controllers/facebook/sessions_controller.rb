@@ -1,15 +1,31 @@
 class Facebook::SessionsController < ApplicationController
 
   def create
-    if request.env[‘omniauth.auth’]
-      user = User.create_with_omniauth(request.env[‘omniauth.auth’])
-      session[:user_id] = user.id
-      redirect_to user_path(user.id)
+    auth = request.env["omniauth.auth"]
+    user = User.create_with_omniauth(auth)
+    session[:user_id] = user.id
+    @credentials = Credential.find_or_create_by_omniauth(auth)
+    # binding.pry
+    if signed_in?
+      if @credentials.user == current_user
+        redirect_to root_path
+        flash[:error] = "You already linked that account!"
+      else
+        @credentials.user = current_user
+        @credentials.save
+        redirect_to profile_path(current_user.id)
+        flash[:success] = "Successfully linked to that account!"
+      end
     else
-      user = User.find_by_email(params[:email])
-      user && user.authenticate(params[:password])
-      session[:user_id] = user.id
-      redirect_to user_path(user.id)
+      if @credentials.user.present?
+        self.current_user = @credentials.user
+        redirect_to profile_path(current_user.id)
+        flash[:success] = "Signed in!"
+      else
+        redirect_to login_path
+          flash[:error] = "Please finish registering"
+      end
     end
+    # redirect_to profile_path(user.id)
   end
 end
