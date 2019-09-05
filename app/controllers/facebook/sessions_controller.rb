@@ -5,7 +5,7 @@ class Facebook::SessionsController < ApplicationController
     user = User.create_with_omniauth(auth)
     session[:user_id] = user.id
     @credentials = Credential.find_or_create_by_omniauth(auth)
-    # binding.pry
+
     if signed_in?
       if @credentials.user == current_user
         redirect_to root_path
@@ -26,6 +26,5 @@ class Facebook::SessionsController < ApplicationController
           flash[:error] = "Please finish registering"
       end
     end
-    # redirect_to profile_path(user.id)
   end
 end
