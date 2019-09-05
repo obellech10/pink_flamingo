@@ -5,4 +5,7 @@ Rails.application.routes.draw do
 
   get '/auth/google', as: :google_login
   get '/auth/facebook', as: :facebook_login
+
+  resources :profile, only: [:show]
+  resources :events, only: [:index, :show]
 end
