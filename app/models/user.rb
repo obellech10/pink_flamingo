@@ -14,4 +14,12 @@ class User < ApplicationRecord
   def self.create_with_omniauth(auth)
     create(first_name: auth[:extra][:raw_info][:name])
   end
+
+  def self.from_omniauth(auth)
+    binding.pry
+    where(email: auth.info.email).first_or_initialize do |user|
+      user.name = auth.info.name
+      user.email = auth.info.email
+    end
+  end
 end
