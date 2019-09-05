@@ -23,7 +23,7 @@ class Facebook::SessionsController < ApplicationController
         flash[:success] = "Signed in!"
       else
         redirect_to login_path
-          flash[:error] = "Please finish registering"
+        flash[:error] = "Please finish registering"
       end
     end
   end
