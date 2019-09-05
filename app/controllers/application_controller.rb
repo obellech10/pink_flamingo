@@ -9,5 +9,4 @@ class ApplicationController < ActionController::Base
   def signed_in?
     !!current_user
   end
- 
 end
