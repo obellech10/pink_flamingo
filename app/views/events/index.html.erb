@@ -4,7 +4,7 @@
 <section>
 <% @events.each do |event| %>
   <div class='event-<%= event.id %>'>
-    <h3 class="title"><%= link_to event.restrictions, event_path(event.id) %></h3>
+    <h3 class="title"><%= link_to event.title, event_path(event.id) %></h3>
     <p class="date"><%= event.date %></p>
   </div>
 <% end %>
