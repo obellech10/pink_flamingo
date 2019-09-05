@@ -16,6 +16,7 @@ ActiveRecord::Schema.define(version: 2019_09_04_210157) do
   enable_extension "plpgsql"
 
   create_table "event_attendees", force: :cascade do |t|
+    t.integer "number_of_guests"
     t.bigint "user_id"
     t.bigint "event_id"
     t.integer "rsvp"
