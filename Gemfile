@@ -44,6 +44,7 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'pry'
   gem 'factory_bot_rails'
+  gem 'omniauth-facebook'
 end
 
 group :test do
