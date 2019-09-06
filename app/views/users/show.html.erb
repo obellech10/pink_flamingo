@@ -4,18 +4,16 @@
   <% if current_user.address.nil? %>
     <%= button_to "Complete your profile", new_user_path, method: :get %>
   <% else %>
-    <%= facade.user_info do |user| %>
-      <h3>Welcome back, <%= user.name %>!</h3>
+      <h3>Welcome back, <%= current_user.first_name %>!</h3>
       <br>
-      <h4>Profile Info:</h4>
-      <h5><%= user.address %></h5>
-      <h5><%= user.state %>, <%= user.zip %></h5>
-      <h5><%= user.phone %> </h5>
-      <h5><%= user.email %> </h5>
-    <% end %>
+      <h5>Profile Info:</h5>
+      <h6><%= current_user.address %></h6>
+      <h6><%= current_user.state %>, <%= current_user.zip %></h6>
+      <h6><%= current_user.phone %> </h6>
+      <h6><%= current_user.email %> </h6>
   <% end %>
 </section>
-
+<br>
 <section>
   <%= link_to "Events in Your Neighborhood", events_path %>
 </section>
