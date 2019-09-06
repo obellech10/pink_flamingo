@@ -1,0 +1,11 @@
+<h1>Nearby Events in Your Neighborhood</h1>
+
+
+<section>
+<% @events.each do |event| %>
+  <div class='event-<%= event.id %>'>
+    <h3 class="title"><%= link_to event.title, event_path(event.id) %></h3>
+    <p class="date"><%= event.date %></p>
+  </div>
+<% end %>
+</section>
