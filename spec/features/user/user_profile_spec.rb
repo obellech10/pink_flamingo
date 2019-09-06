@@ -27,10 +27,11 @@ describe "As a logged in User on my profile page" do
       fill_in 'user[phone]', with: phone
       fill_in 'user[email]', with: email
 
-      click_link "Create Profile"
+      click_button "Create Profile"
 
-      expect(current_path).to eq(user_path(user))
+      expect(current_path).to eq(profile_path(user.id))
 
+      expect(page).to have_content("Welcome to your profile, #{first_name}!")
       expect(page).to have_content(first_name)
       expect(page).to have_content(last_name)
       expect(page).to have_content(address)
