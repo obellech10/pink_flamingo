@@ -4,12 +4,24 @@
     <title>PinkFlamingo</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <%= stylesheet_link_tag "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" %>
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
   </head>
 
   <body>
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e61ea4; border-bottom: 5px solid #e61ea4; font-weight: bold; margin-bottom: 30px;">
+	    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+	        <span class="navbar-toggler-icon"></span>
+	    </button>
+	    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+	      <div class="navbar-nav">
+	        <a class="nav-item nav-link" <%= link_to 'HomeHome', root_path %>
+	        <a class="nav-item nav-link" <%= link_to 'Profile', profile_path if current_user %>
+        </div>
+      </div>
+    </nav>
+
     <div class="flash-message">
         <% flash.each do |name, msg| %>
           <%= content_tag :div, msg, class: name %>

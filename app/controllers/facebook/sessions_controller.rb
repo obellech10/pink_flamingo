@@ -13,13 +13,13 @@ class Facebook::SessionsController < ApplicationController
       else
         @credentials.user = current_user
         @credentials.save
-        redirect_to profile_path(current_user.id)
+        redirect_to profile_path
         flash[:success] = "Successfully linked to that account!"
       end
     else
       if @credentials.user.present?
         self.current_user = @credentials.user
-        redirect_to profile_path(current_user.id)
+        redirect_to profile_path
         flash[:success] = "Signed in!"
       else
         redirect_to login_path
