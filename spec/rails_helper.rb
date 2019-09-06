@@ -12,7 +12,7 @@ def stub_omniauth
 		"credentials" => {"token" => "1"},
 	 	 "provider" => 'facebook',
 	 	 "uid" => '1',
-		"name" => {"extra" => {"raw_info" => {"name" => "jori"}}}
+		"extra" => {"raw_info" => {"name" => "jori"}}
 	})
 end
 # Requires supporting ruby files with custom matchers and macros, etc, in
