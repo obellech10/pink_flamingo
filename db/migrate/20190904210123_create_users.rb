@@ -7,7 +7,7 @@ class CreateUsers < ActiveRecord::Migration[5.2]
       t.string :city
       t.string :state
       t.integer :zip
-      t.integer :phone
+      t.string :phone
       t.string :email
     end
   end

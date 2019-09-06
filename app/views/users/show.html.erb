@@ -1,5 +1,21 @@
 <h1>User Profile</h1>
 
 <section>
+  <% if current_user.address.nil? %>
+    <%= button_to "Complete your profile", new_user_path, method: :get %>
+  <% else %>
+    <%= facade.user_info do |user| %>
+      <h3>Welcome back, <%= user.name %>!</h3>
+      <br>
+      <h4>Profile Info:</h4>
+      <h5><%= user.address %></h5>
+      <h5><%= user.state %>, <%= user.zip %></h5>
+      <h5><%= user.phone %> </h5>
+      <h5><%= user.email %> </h5>
+    <% end %>
+  <% end %>
+</section>
+
+<section>
   <%= link_to "Events in Your Neighborhood", events_path %>
 </section>

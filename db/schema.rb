@@ -33,7 +33,6 @@ ActiveRecord::Schema.define(version: 2019_09_05_224159) do
   end
 
   create_table "events", force: :cascade do |t|
-    t.string "name"
     t.string "date"
     t.string "time"
     t.string "address"
@@ -53,7 +52,7 @@ ActiveRecord::Schema.define(version: 2019_09_05_224159) do
     t.string "city"
     t.string "state"
     t.integer "zip"
-    t.integer "phone"
+    t.string "phone"
     t.string "email"
   end
 

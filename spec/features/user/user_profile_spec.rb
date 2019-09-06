@@ -35,8 +35,9 @@ describe "As a logged in User on my profile page" do
 
       expect(page).to have_button("Complete your profile")
 
-      expect(current_path).to eq(new_user_path)
+      click_button "Complete your profile"
 
+      expect(current_path).to eq(new_user_path)
 
       fill_in 'user[first_name]', with: @first_name
       fill_in 'user[last_name]', with: @last_name
@@ -47,7 +48,7 @@ describe "As a logged in User on my profile page" do
       fill_in 'user[phone]', with: @phone
       fill_in 'user[email]', with: @email
 
-      click_link "Create Profile"
+      click_button "Complete Profile"
 
       expect(current_path).to eq(profile_path)
 

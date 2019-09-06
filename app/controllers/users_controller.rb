@@ -4,13 +4,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    binding.pry
     user = User.find_by(id: current_user.id)
-    
-  end
-
-  def update
-    binding.pry
   end
 
   def create
