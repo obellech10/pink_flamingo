@@ -1,7 +1,7 @@
 class Facebook::SessionsController < ApplicationController
 
   # def create
-  #   auth = request.env["omniauth.auth"]
+  #   auth = request.env["omniautsh.auth"]
   #   user = User.create_with_omniauth(auth)
   #   session[:user_id] = user.id
   #   @credentials = Credential.find_or_create_by_omniauth(auth)

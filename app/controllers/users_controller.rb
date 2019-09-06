@@ -5,10 +5,12 @@ class UsersController < ApplicationController
 
   def show
     binding.pry
-    user = User.find_by(params["id"])
-    render locals: {
-      UserShowFacade.new(user)
-    }
+    user = User.find_by(id: current_user.id)
+    
+  end
+
+  def update
+    binding.pry
   end
 
   def create
