@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(version: 2019_09_05_224159) do
   end
 
   create_table "event_attendees", force: :cascade do |t|
+    t.integer "number_of_guests"
     t.bigint "user_id"
     t.bigint "event_id"
     t.integer "rsvp"
