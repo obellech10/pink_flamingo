@@ -39,27 +39,28 @@ describe "As a logged in User on my profile page" do
 
       expect(current_path).to eq(new_user_path)
 
-      fill_in 'user[first_name]', with: @first_name
-      fill_in 'user[last_name]', with: @last_name
-      fill_in 'user[address]', with: @address
-      fill_in 'user[city]', with: @city
-      fill_in 'user[state]', with: @state
-      fill_in 'user[zip]', with: @zip
-      fill_in 'user[phone]', with: @phone
-      fill_in 'user[email]', with: @email
+      fill_in "user[first_name]", with: @first_name
+      fill_in "user[last_name]", with: @last_name
+      fill_in "user[address]", with: @address
+      fill_in "user[city]", with: @city
+      fill_in "user[state]", with: @state
+      fill_in "user[zip]", with: @zip
+      fill_in "user[phone]", with: @phone
+      fill_in "user[email]", with: @email
 
       click_button "Complete Profile"
 
       expect(current_path).to eq(profile_path)
 
-      expect(page).to have_content("Welcome to your profile, #{@first_name}!")
-      expect(page).to have_content(@first_name)
-      expect(page).to have_content(@last_name)
-      expect(page).to have_content(@address)
-      expect(page).to have_content(@city)
-      expect(page).to have_content(@state)
-      expect(page).to have_content(@phone_number)
-      expect(page).to have_content(@email)
+      within(page.first("#user-info")) do
+        expect(page).to have_css(".user-name")
+      end
+
+      expect(page.all(".user-address").first).to have_content(@address)
+      expect(page.all(".user-state-zip").first).to have_content(@city)
+      expect(page.all(".user-state-zip").first).to have_content(@state)
+      expect(page.all(".user-phone").first).to have_content(@phone_number)
+      expect(page.all(".user-email").first).to have_content(@email)
 
       OmniAuth.config.mock_auth[:google] = nil
     end
