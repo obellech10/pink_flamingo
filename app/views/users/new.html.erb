@@ -1,0 +1,42 @@
+<div class="user-profile">
+  <main>
+<h4>Create Your Profile:</h4>
+  <section>
+    <%= form_for @user do |form| %>
+      <div >
+        <%= form.label :first_name %>
+        <%= form.text_field :first_name %>
+      </div>
+      <div>
+        <%= form.label :last_name %>
+        <%= form.text_field :last_name %>
+      </div>
+      <div>
+        <%= form.label :address %>
+        <%= form.text_field :address %>
+      </div>
+      <div>
+        <%= form.label :city %>
+        <%= form.text_field :city %>
+      </div>
+      <div>
+        <%= form.label :state %>
+        <%= form.text_field :state %>
+      </div>
+      <div>
+        <%= form.label :zip %>
+        <%= form.text_field :zip %>
+      </div>
+      <div>
+        <%= form.label :phone %>
+        <%= form.telephone_field :phone %>
+      </div>
+      <div>
+        <%= form.label :email %>
+        <%= form.email_field :email %>
+      </div>
+      <%= form.submit 'Create Profile' %>
+    <% end %>
+  </section>
+  </main>
+</div>

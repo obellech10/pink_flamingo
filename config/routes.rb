@@ -12,5 +12,8 @@ Rails.application.routes.draw do
   get 'auth/failure', to: redirect('/')
 
   get '/profile', to: 'users#show', as: :profile
+
+  resources :users, only: [:new, :create]
+
   resources :events, only: [:index, :show]
 end
