@@ -3,8 +3,40 @@ require 'rails_helper'
 describe "As a logged in User on my profile page" do
   describe "I can see fields to fill in my personal info" do
     it "When I hit submit I am rerouted to my profile page where I see that info" do
+      user = create(:user)
 
-      
+      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+
+      first_name = "Glinda"
+      last_name = "LaRoux"
+      address = "8429 Circle Drive"
+      city = "Brooklyn"
+      state = "NY"
+      zip = "10010"
+      phone = "504-863-7468"
+      email = "hotstuff@hotmail.com"
+
+      visit new_profile_path
+
+      fill_in 'user[first_name]', with: first_name
+      fill_in 'user[last_name]', with: last_name
+      fill_in 'user[address]', with: address
+      fill_in 'user[city]', with: city
+      fill_in 'user[state]', with: state
+      fill_in 'user[phone_number]', with: phone_number
+      fill_in 'user[safe_email]', with: email
+
+      click_link "Create Account"
+
+      expect(current_path).to eq(user_path(user))
+
+      expect(page).to have_content(first_name)
+      expect(page).to have_content(last_name)
+      expect(page).to have_content(address)
+      expect(page).to have_content(city)
+      expect(page).to have_content(state)
+      expect(page).to have_content(phone_number)
+      expect(page).to have_content(email)
     end
   end
 end

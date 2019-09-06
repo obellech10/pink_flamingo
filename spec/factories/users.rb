@@ -6,6 +6,7 @@ FactoryBot.define do
     email { Faker::Internet.email }
     city { Faker::Providers.city }
     state { Faker::Providers.state }
+    zip { Faker::Providers.zip }
     phone { Faker::Providers.phone_number }
     email { Faker::Internet.safe_email }
   end
