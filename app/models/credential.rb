@@ -2,7 +2,7 @@ class Credential < ApplicationRecord
   belongs_to :user
 
   def self.find_or_create_by_omniauth(auth)
-    if auth["provider"] == "Facebook"
+    if auth["provider"] == "facebook"
       info = "credentials"
     else
       info = "info"
