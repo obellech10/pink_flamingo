@@ -1,12 +1,12 @@
 body {
-	background-color: black;
+	/* background-color: #575252; */
   color: #e61ea4;
 	text-align: center;
 }
 
 input[type=submit] {
   width: 20%;
-  background-color: #e61ea4;
+  background-color: #8a8484;
   color: white;
   padding: 5px 5px;
   margin: 5px 0;
@@ -16,5 +16,5 @@ input[type=submit] {
 }
 
 input[type=submit]:hover {
-  background-color: #e61ea4;
+  background-color: #8a8484;
 }

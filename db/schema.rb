@@ -28,13 +28,11 @@ ActiveRecord::Schema.define(version: 2019_09_05_224159) do
     t.bigint "user_id"
     t.bigint "event_id"
     t.integer "rsvp"
-    t.integer "number_of_guests"
     t.index ["event_id"], name: "index_event_attendees_on_event_id"
     t.index ["user_id"], name: "index_event_attendees_on_user_id"
   end
 
   create_table "events", force: :cascade do |t|
-    t.string "name"
     t.string "date"
     t.string "time"
     t.string "address"
