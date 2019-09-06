@@ -3,3 +3,18 @@ body {
   color: #e61ea4;
 	text-align: center;
 }
+
+input[type=submit] {
+  width: 20%;
+  background-color: #e61ea4;
+  color: white;
+  padding: 5px 5px;
+  margin: 5px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #e61ea4;
+}
