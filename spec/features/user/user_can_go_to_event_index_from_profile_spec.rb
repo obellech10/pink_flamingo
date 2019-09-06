@@ -12,7 +12,7 @@ RSpec.describe 'As a user' do
 
       visit "/profile"
 
-      expect(current_path).to eq(profile_path(id))
+      expect(current_path).to eq(profile_path)
 
       expect(page).to have_content("Events in Your Neighborhood")
       click_link 'Events in Your Neighborhood'

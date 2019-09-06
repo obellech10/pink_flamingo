@@ -8,10 +8,10 @@ describe 'As a visitor on the dashboard page' do
 
     click_button "Login with Google"
 
-    expect(current_path).to eq(profile_path(user.id))
-
-    OmniAuth.config.mock_auth[:google] = nil
+    expect(current_path).to eq(profile_path)
 
     expect(page).to have_content("Welcome")
+
+    OmniAuth.config.mock_auth[:google] = nil
   end
 end

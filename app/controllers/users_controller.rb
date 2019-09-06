@@ -4,6 +4,11 @@ class UsersController < ApplicationController
   end
 
   def show
+    binding.pry
+    user = User.find_by(params["id"])
+    render locals: {
+      UserShowFacade.new(user)
+    }
   end
 
   def create
@@ -11,10 +16,10 @@ class UsersController < ApplicationController
     if user.save
       session[:user_id] = user.id
       flash[:success] = "Welcome to your profile, #{user.first_name}!"
-      redirect_to profile_path(user.id)
+      redirect_to user_path(user.id)
     else
       flash[:error] = "Oh no! Something went wrong..."
-      redirect_to
+      redirect_to new_user_path
     end
   end
 
