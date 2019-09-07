@@ -3,7 +3,6 @@ require 'rails_helper'
 describe "As a logged in User on my profile page" do
   describe "I can see fields to fill in my personal info" do
     before :each do
-      @name = "Glinda LaRoux"
       @address = "8429 Circle Drive"
       @city = "Brooklyn"
       @state = "NY"
@@ -38,7 +37,6 @@ describe "As a logged in User on my profile page" do
 
       expect(current_path).to eq(new_user_path)
 
-      fill_in "user[name]", with: @name
       fill_in "user[address]", with: @address
       fill_in "user[city]", with: @city
       fill_in "user[state]", with: @state
