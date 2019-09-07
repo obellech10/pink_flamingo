@@ -52,7 +52,7 @@ ActiveRecord::Schema.define(version: 2019_09_05_224159) do
     t.string "city"
     t.string "state"
     t.integer "zip"
-    t.integer "phone"
+    t.string "phone"
     t.string "email"
   end
 

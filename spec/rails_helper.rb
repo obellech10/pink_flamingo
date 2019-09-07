@@ -9,9 +9,9 @@ require 'rspec/rails'
 def stub_omniauth
 	OmniAuth.config.test_mode = true
 	OmniAuth.config.mock_auth[:facebook] = OmniAuth::AuthHash.new({
-		"credentials" => {"token" => "1"},
-	 	"provider" => 'facebook',
-	 	"uid" => '1',
+		"credentials" => {"token" => "1"}, 
+	 	 "provider" => 'facebook',
+	 	 "uid" => '1',
 		"extra" => {"raw_info" => {"name" => "jori"}}
 	})
 end
