@@ -12,5 +12,5 @@ describe 'User can log out' do
     click_link "Logout"
 
     expect(current_path).to eq(root_path)
-	end
+  end
 end
