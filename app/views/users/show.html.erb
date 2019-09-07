@@ -4,7 +4,7 @@
   <% if current_user.address.nil? %>
     <%= button_to "Complete your profile", new_user_path, method: :get %>
   <% else %>
-      <h3 class="user-name">Welcome back, <%= current_user.first_name %>!</h3>
+      <h3 class="user-name">Welcome back, <%= current_user.name %>!</h3>
       <br>
       <h5>Profile Info:</h5>
       <h6 class="user-address"><%= current_user.address %></h6>

@@ -41,13 +41,13 @@ ActiveRecord::Schema.define(version: 2019_09_05_224159) do
     t.boolean "food"
     t.boolean "booze"
     t.string "restrictions"
+    t.float "radius"
     t.string "title"
     t.index ["user_id"], name: "index_events_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "first_name"
-    t.string "last_name"
+    t.string "name"
     t.string "address"
     t.string "city"
     t.string "state"

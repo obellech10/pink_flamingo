@@ -4,7 +4,14 @@ class EventsController < ApplicationController
   end
 
   def create
-
+    event = current_user.events.create(event_params)
+    if event.save
+      flash[:success] = "Your event was created!"
+      redirect_to event_path(event)
+    else
+      flash[:warning] = "There was an error: please try again."
+      redirect_to new_event_path
+    end
   end
 
   def index
@@ -14,4 +21,9 @@ class EventsController < ApplicationController
   def show
     @event = Event.find(params[:id])
   end
+
+  private
+    def event_params
+      params.require(:event).permit(:title, :date, :time, :address, :user_id, :event_type, :food, :booze, :restrictions, :radius)
+    end
 end

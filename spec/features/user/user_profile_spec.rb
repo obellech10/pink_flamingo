@@ -3,7 +3,7 @@ require 'rails_helper'
 describe "As a logged in User on my profile page" do
   describe "I can see fields to fill in my personal info" do
     before :each do
-      @first_name = "Glinda"
+      @name = "Glinda"
       @last_name = "LaRoux"
       @address = "8429 Circle Drive"
       @city = "Brooklyn"
