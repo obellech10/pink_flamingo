@@ -33,8 +33,8 @@ describe "As a user on my profile page" do
       fill_in "event[time]", with: @time
       fill_in "event[address]", with: @address
       fill_in "event[event_type]", with: @event_type
-      fill_in "event[food]", with: @food
-      fill_in "event[booze]", with: @booze
+      check "event[food]"
+      check "event[booze]"
       fill_in "event[restrictions]", with: @restrictions
 
       click_on "Create"
@@ -47,7 +47,7 @@ describe "As a user on my profile page" do
       expect(page).to have_content(@date)
       expect(page).to have_content(@time)
       expect(page).to have_content(@address)
-      
+
       OmniAuth.config.mock_auth[:google] = nil
     end
   end
