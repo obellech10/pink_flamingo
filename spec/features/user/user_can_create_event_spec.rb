@@ -53,5 +53,28 @@ describe "As a user on my profile page" do
 
       OmniAuth.config.mock_auth[:google] = nil
     end
+
+    it "All areas of form must be filled in" do
+      stub_omniauth
+
+      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user)
+
+      visit profile_path
+
+      expect(page).to have_button("Create an Event")
+
+      click_on "Create an Event"
+
+      expect(current_path).to eq(new_event_path)
+
+      fill_in "event[title]", with: @title
+      fill_in "event[date]", with: @date
+      fill_in "event[time]", with: @time
+
+      click_on "Create"
+
+      expect(current_path).to eq(new_event_path)
+      expect(page).to have_content("There was an error: please try again.")
+    end
   end
 end

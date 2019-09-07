@@ -1,4 +1,6 @@
 class EventsController < ApplicationController
+  before_action :check_authorized_user
+
   def new
     @event = Event.new
   end
@@ -29,5 +31,9 @@ class EventsController < ApplicationController
   private
     def event_params
       params.require(:event).permit(:title, :date, :time, :address, :user_id, :event_type, :food, :booze, :restrictions, :radius)
+    end
+
+    def check_authorized_user
+      render file: 'public/404', status: 404 unless !current_user.address.nil?
     end
 end

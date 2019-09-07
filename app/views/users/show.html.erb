@@ -3,8 +3,10 @@
 <section id="user-info">
 
   <% if current_user.address.nil? %>
-    <%= button_to "Complete your profile", new_user_path, method: :get %>
+    <%= button_to "Complete your profile", edit_user_path(current_user), method: :get %>
   <% else %>
+    <%= button_to "Update Profile", edit_user_path(current_user), method: :get  %>
+    <br>
       <h3 class="user-name">Welcome back, <%= current_user.name %>!</h3>
       <br>
       <h5>Profile Info:</h5>
