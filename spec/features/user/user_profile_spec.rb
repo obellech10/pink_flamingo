@@ -11,7 +11,6 @@ describe "As a logged in User on my profile page" do
       @email = "hotstuff@hotmail.com"
     end
 
-
     it "When I hit submit I am rerouted to my profile page where I see that info" do
       stub_omniauth
 
@@ -26,6 +25,7 @@ describe "As a logged in User on my profile page" do
       expect(page).to have_content("Successfully linked to that account!")
 
       expect(page).to have_button("Complete your profile")
+      expect(page).to_not have_link("Events In Your Neighborhood")
 
       click_button "Complete your profile"
 
