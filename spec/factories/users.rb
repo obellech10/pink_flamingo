@@ -1,13 +1,12 @@
 FactoryBot.define do
   factory :user do
-    first_name { Faker::Dog.name }
-    last_name { Faker::Artist.name }
-    address { Faker::Providers.address}
-    email { Faker::Internet.email }
-    city { Faker::Providers.city }
-    state { Faker::Providers.state }
-    zip { Faker::Providers.zip }
-    phone { Faker::Providers.phone_number }
-    email { Faker::Internet.safe_email }
+    first_name { 'Baxter' }
+    last_name { 'McDog' }
+    address { "1234 Hello Ave"}
+    city { "Denver" }
+    state { "CO" }
+    zip { 80802 }
+    phone { "415-999-0987" }
+    email { "baxter@gmail.com" }
   end
 end
