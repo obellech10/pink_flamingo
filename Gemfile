@@ -45,6 +45,7 @@ group :development, :test do
   gem 'pry'
   gem 'factory_bot_rails'
   gem 'omniauth-facebook'
+  gem 'faker'
 end
 
 group :test do
@@ -54,7 +55,6 @@ group :test do
   gem 'shoulda-matchers'
   gem 'launchy'
   gem 'webmock'
-  gem 'faker'
 end
 
 group :development do
