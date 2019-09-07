@@ -6,7 +6,7 @@ describe "As a user on the Events Index page" do
       stub_omniauth
 
       user = create(:user)
-      event = create(:event, user_id: user.id)
+      event = create(:event, user_id: user.id, address: "2795 Speer Blvd")
 
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
