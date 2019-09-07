@@ -3,6 +3,9 @@
 
 <section>
   <%= link_to "What is it?", about_path %>
-  <%= button_to 'Connect via Facebook', facebook_login_path, method: :get %>
-  <%= button_to 'Connect via Google', '/auth/google_oauth2', method: :get %>
+
+  <% unless current_user %>
+    <%= button_to 'Connect via Facebook', facebook_login_path, method: :get %>
+    <%= button_to 'Connect via Google', '/auth/google_oauth2', method: :get %>
+  <% end %>
 </section>
