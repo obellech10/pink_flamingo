@@ -9,6 +9,7 @@ class CreateEvents < ActiveRecord::Migration[5.2]
       t.boolean :food
       t.boolean :booze
       t.string :restrictions
+      t.float :radius
     end
   end
 end
