@@ -13,7 +13,7 @@ Rails.application.routes.draw do
 
   get '/profile', to: 'users#show', as: :profile
 
-  resources :users, only: [:new, :update]
+  resources :users, only: [:edit, :update]
 
   resources :events, only: [:index, :show, :new, :create]
 end
