@@ -7,7 +7,7 @@ describe "As a user on my profile page" do
       @date = "08/30/2019"
       @time = "7 - 10 pm"
       @address = "3959 Road Place"
-      @user = create(:user)
+      @user = User.create!(first_name: 'Jon', last_name: 'Doe', address: "123 Main St", city: "Denver", state: "CO", zip: 80203, email: "joe@example.com")
       @id = @user.id
       @event_type = "Pool Party"
       @food = true
@@ -16,7 +16,7 @@ describe "As a user on my profile page" do
     end
 
     it "I see spaces for the date, time, location, radius, type of event, food, alcohol, and restrictions" do
-      mock_omniauth
+      stub_omniauth
 
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user)
 
@@ -47,12 +47,8 @@ describe "As a user on my profile page" do
       expect(page).to have_content(@date)
       expect(page).to have_content(@time)
       expect(page).to have_content(@address)
-
-
-
-
-
-
+      
+      OmniAuth.config.mock_auth[:google] = nil
     end
   end
 end
