@@ -5,7 +5,6 @@
   <% if current_user.address.nil? %>
     <%= button_to "Complete your profile", edit_user_path(current_user), method: :get %>
   <% else %>
-    <%= button_to "Update Profile", edit_user_path(current_user), method: :get  %>
     <br>
       <h3 class="user-name">Welcome back, <%= current_user.name %>!</h3>
       <br>
@@ -14,6 +13,8 @@
       <h6 class="user-state-zip"><%= current_user.city %>, <%= current_user.state %> <%= current_user.zip %></h6>
       <h6 class="user-phone"><%= current_user.phone %> </h6>
       <h6 class="user-email"><%= current_user.email %> </h6>
+      <br>
+      <%= button_to "Update Profile", edit_user_path(current_user), method: :get  %>
 
       <br>
       <%= button_to "Volunteer to Host an Event" %>
