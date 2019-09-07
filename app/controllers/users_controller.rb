@@ -4,13 +4,11 @@ class UsersController < ApplicationController
   end
 
   def show
-  # no params being passed in..
   end
 
-  def create
-    user = User.create(user_params)
-    if user.save
-      session[:user_id] = user.id
+  def update
+    user = current_user
+    if user.update(user_params)
       flash[:success] = "Welcome to your profile, #{user.name}!"
       redirect_to profile_path
     else
