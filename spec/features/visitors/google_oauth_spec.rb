@@ -1,16 +1,10 @@
 require 'rails_helper'
 
 describe 'As a visitor on the dashboard page' do
-  xit "I see a button to login through google" do
+  it "I see a button to login through google" do
     stub_omniauth
 
     visit root_path
-
-    expect(page).to have_button("Login")
-
-    click_button "Login"
-
-    expect(current_path).to eq(login_path)
 
     expect(page).to have_button("Connect via Google")
 
