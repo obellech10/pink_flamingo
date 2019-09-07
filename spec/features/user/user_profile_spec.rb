@@ -12,24 +12,17 @@ describe "As a logged in User on my profile page" do
     end
 
     it "When I hit submit I am rerouted to my profile page where I see that info" do
-      stub_omniauth
+      user = User.create(name: "Jori")
+      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
-      visit root_path
-
-      expect(page).to have_button("Connect via Facebook")
-
-      click_on "Connect via Facebook"
-
-      expect(current_path).to eq(profile_path)
-
-      expect(page).to have_content("Successfully linked to that account!")
+      visit profile_path
 
       expect(page).to have_button("Complete your profile")
       expect(page).to_not have_link("Events In Your Neighborhood")
 
       click_button "Complete your profile"
 
-      expect(current_path).to eq(new_user_path)
+      expect(current_path).to eq(edit_user_path(user))
 
       fill_in "user[address]", with: @address
       fill_in "user[city]", with: @city
@@ -38,7 +31,7 @@ describe "As a logged in User on my profile page" do
       fill_in "user[phone]", with: @phone
       fill_in "user[email]", with: @email
 
-      click_button "Complete Profile"
+      click_button "Submit Profile Info"
 
       expect(current_path).to eq(profile_path)
 
