@@ -1,5 +1,5 @@
 FactoryBot.define do
-   factory :user do
+   factory :event do
      title { "Its my Partaaaaay!" }
      date { "12/4/19" }
      time { "5 pm" }

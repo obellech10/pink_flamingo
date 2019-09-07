@@ -6,6 +6,10 @@ require File.expand_path('../../config/environment', __FILE__)
 abort("The Rails environment is running in production mode!") if Rails.env.production?
 require 'rspec/rails'
 # Add additional requires below this line. Rails is not loaded until this point!
+RSpec.configure do |config|
+  config.include FactoryBot::Syntax::Methods
+end
+
 def stub_omniauth
 	OmniAuth.config.test_mode = true
 
