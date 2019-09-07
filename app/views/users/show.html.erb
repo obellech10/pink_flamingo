@@ -1,6 +1,7 @@
 <h1>User Profile</h1>
 
 <section id="user-info">
+
   <% if current_user.address.nil? %>
     <%= button_to "Complete your profile", new_user_path, method: :get %>
   <% else %>
@@ -13,14 +14,10 @@
       <h6 class="user-email"><%= current_user.email %> </h6>
 
       <br>
+      <%= button_to "Volunteer to Host an Event" %>
       <br>
-      <h3><%= button_to "Volunteer to Host an Event" %></h3>
+      <%= button_to "Create an Event", new_event_path, method: :get %>
       <br>
-      <br>
-      <h3><%= button_to "Create an Event", new_event_path, method: :get%></h3>
+      <%= link_to "Events in Your Neighborhood", events_path %>
   <% end %>
-</section>
-<br>
-<section>
-  <%= link_to "Events in Your Neighborhood", events_path %>
 </section>
