@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe 'As a user' do
   describe 'When I visit my profile page' do
     it "I can click on events in your neighborhood and I'm taken to event index page" do
-      user = User.create!(first_name: 'Jon', last_name: 'Doe', address: "123 Main St", city: "Denver", state: "CO", zip: 80203, email: "joe@example.com")
+      user = User.create!(name: 'Jon Doe', address: "123 Main St", city: "Denver", state: "CO", zip: 80203, email: "joe@example.com")
       id = user.id
 
       event_1 = user.events.create!(title: "Football Watch Party", date: "9-13-19", time: "8:00pm", address: "123 Main St", food: true, booze: true)

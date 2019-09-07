@@ -1,7 +1,6 @@
 FactoryBot.define do
   factory :user do
-    first_name { Faker::Dog.name }
-    last_name { Faker::Artist.name }
+    name { Faker::Dog.name }
     address { Faker::Providers.address}
     email { Faker::Internet.email }
     city { Faker::Providers.city }
