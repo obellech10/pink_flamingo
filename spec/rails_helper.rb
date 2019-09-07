@@ -17,10 +17,9 @@ def stub_omniauth
 		})
 	else
 		OmniAuth.config.mock_auth[:google] = OmniAuth::AuthHash.new({
-		"info" => {"token" => "1"},
+		"info" => {"token" => "1", "name" => "jori"},
 	 	"provider" => 'google',
-	 	"uid" => '1',
-		"info" => {"name" => "jori"}
+	 	"uid" => '1'
 		})
 	end
 end
