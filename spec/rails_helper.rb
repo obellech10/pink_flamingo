@@ -8,13 +8,23 @@ require 'rspec/rails'
 # Add additional requires below this line. Rails is not loaded until this point!
 def stub_omniauth
 	OmniAuth.config.test_mode = true
-	OmniAuth.config.mock_auth[:facebook] = OmniAuth::AuthHash.new({
-		"credentials" => {"token" => "1"}, 
+
+	if OmniAuth.config.mock_auth[:facebook] = OmniAuth::AuthHash.new({
+		"credentials" => {"token" => "1"},
 	 	 "provider" => 'facebook',
 	 	 "uid" => '1',
 		"extra" => {"raw_info" => {"name" => "jori"}}
-	})
+		})
+	else
+		OmniAuth.config.mock_auth[:google] = OmniAuth::AuthHash.new({
+		"info" => {"token" => "1"},
+	 	"provider" => 'google',
+	 	"uid" => '1',
+		"info" => {"name" => "jori"}
+		})
+	end
 end
+
 # Requires supporting ruby files with custom matchers and macros, etc, in
 # spec/support/ and its subdirectories. Files matching `spec/**/*_spec.rb` are
 # run as spec files by default. This means that files in spec/support that end

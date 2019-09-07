@@ -8,6 +8,13 @@ RSpec.describe 'As a visitor' do
 
     expect(page).to have_link("What is it?")
     expect(page).to have_content("An app to bring you closer to your community")
-    expect(page).to have_button("Login")
+
+  end
+
+  it 'and view my login options' do
+    visit '/'
+
+    expect(page).to have_button('Connect via Google')
+    expect(page).to have_button('Connect via Facebook')
   end
 end
