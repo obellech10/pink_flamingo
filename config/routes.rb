@@ -2,7 +2,6 @@ Rails.application.routes.draw do
   root 'welcome#index'
 
   get '/about', to: 'about#show', as: :about
-  get '/login', to: "sessions#new", as: :login
 
   get '/auth/facebook', as: :facebook_login
 

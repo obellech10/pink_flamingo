@@ -17,12 +17,6 @@ describe "As a logged in User on my profile page" do
 
       visit root_path
 
-      expect(page).to have_button("Login")
-
-      click_button "Login"
-
-      expect(current_path).to eq(login_path)
-
       expect(page).to have_button("Connect via Facebook")
 
       click_on "Connect via Facebook"

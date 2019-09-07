@@ -11,14 +11,10 @@ class User < ApplicationRecord
   has_many :credentials
 
   def self.create_with_omniauth(auth)
-    binding.pry
-    create(name: auth[:extra][:raw_info][:name])
-  end
-
-  def self.from_omniauth(auth)
-    where(email: auth.info.email).first_or_initialize do |user|
-      user.name = auth.info.name
-      user.email = auth.info.email
+    if auth[:provider] == "facebook"
+      create(name: auth[:extra][:raw_info][:name])
+    else
+      create(name: auth[:info][:name])
     end
   end
 end

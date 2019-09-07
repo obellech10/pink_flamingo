@@ -5,9 +5,6 @@ describe 'User login' do
 		stub_omniauth
 
     visit '/'
-    click_on "Login"
-
-    expect(current_path).to eq(login_path)
 
 		click_on "Connect via Facebook"
 
