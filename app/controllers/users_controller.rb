@@ -11,7 +11,7 @@ class UsersController < ApplicationController
     user = User.create(user_params)
     if user.save
       session[:user_id] = user.id
-      flash[:success] = "Welcome to your profile, #{user.first_name}!"
+      flash[:success] = "Welcome to your profile, #{user.name}!"
       redirect_to profile_path
     else
       flash[:error] = "Oh no! Something went wrong..."
@@ -21,6 +21,6 @@ class UsersController < ApplicationController
 
   private
     def user_params
-      params.require(:user).permit(:first_name, :last_name, :address, :city, :state, :zip, :phone, :email)
+      params.require(:user).permit(:name, :address, :city, :state, :zip, :phone, :email)
     end
 end

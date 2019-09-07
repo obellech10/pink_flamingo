@@ -3,14 +3,6 @@
 <h4>Create Your Profile:</h4>
   <section>
     <%= form_for @user, url: users_path, method: :post do |form| %>
-      <div >
-        <%= form.label :first_name %>
-        <%= form.text_field :first_name %>
-      </div>
-      <div>
-        <%= form.label :last_name %>
-        <%= form.text_field :last_name %>
-      </div>
       <div>
         <%= form.label :address %>
         <%= form.text_field :address %>
