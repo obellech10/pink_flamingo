@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   root 'welcome#index'
 
   get '/about', to: 'about#show', as: :about
+  get '/logout', to: 'sessions#destroy', as: :logout
 
   get '/auth/facebook', as: :facebook_login
 
@@ -12,7 +13,7 @@ Rails.application.routes.draw do
 
   get '/profile', to: 'users#show', as: :profile
 
-  resources :users, only: [:new, :create]
+  resources :users, only: [:edit, :update]
 
   resources :events, only: [:index, :show, :new, :create]
 end
