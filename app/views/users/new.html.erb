@@ -4,12 +4,8 @@
   <section>
     <%= form_for @user, url: users_path, method: :post do |form| %>
       <div >
-        <%= form.label :first_name %>
-        <%= form.text_field :first_name %>
-      </div>
-      <div>
-        <%= form.label :last_name %>
-        <%= form.text_field :last_name %>
+        <%= form.label :name %>
+        <%= form.text_field :name %>
       </div>
       <div>
         <%= form.label :address %>
