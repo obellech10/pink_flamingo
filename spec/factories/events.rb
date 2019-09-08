@@ -1,11 +1,13 @@
 FactoryBot.define do
-  factory :event do
-    title { 'Book Club' }
-    date { "10-13-19" }
-    time { "8:00pm" }
-    address { "123 Main St" }
-    food { false }
-    booze { false }
-    user
-  end
+   factory :event do
+     title { "Its my Partaaaaay!" }
+     date { "12/4/19" }
+     time { "5 pm" }
+     address { "1234 Hello Ave"}
+     event_type { "Grilling" }
+     food { true }
+     booze { true }
+     restrictions { "Dont bring your lame kids." }
+     radius { 600.0 }
+   end
 end

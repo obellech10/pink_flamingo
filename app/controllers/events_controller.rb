@@ -22,6 +22,10 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find(params[:id])
+    address = @event.address
+    render locals: {
+      facade: EventLocationFacade.new(address)
+    }
   end
 
   private
