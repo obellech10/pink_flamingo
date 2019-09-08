@@ -22,7 +22,7 @@ describe "As a user on the Events Index page" do
 
       expect(page).to have_button("RSVP")
 
-      expect(page).to have_css('iframe#location_map')
+      expect(page).to have_css('.location_map')
     end
   end
 end
