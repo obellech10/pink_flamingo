@@ -12,7 +12,7 @@ describe 'As a visitor on the dashboard page' do
 
     expect(current_path).to eq(profile_path)
 
-    expect(page).to have_content("Successfully linked to that account!")
+    expect(page).to have_content("Successfully logged in!")
 
     OmniAuth.config.mock_auth[:google] = nil
   end
