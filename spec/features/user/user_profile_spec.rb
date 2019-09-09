@@ -45,7 +45,7 @@ describe "As a logged in User on my profile page" do
       expect(page.all(".user-phone").first).to have_content(@phone_number)
       expect(page.all(".user-email").first).to have_content(@email)
 
-      expect(page).to have_button("Volunteer to Host an Event")
+      expect(page).to have_button("Create an Event")
 
       OmniAuth.config.mock_auth[:google] = nil
     end

@@ -20,8 +20,6 @@ describe "As a user on the Events Index page" do
 
       expect(page).to have_content("Football Watch Party")
 
-      expect(page).to have_button("RSVP")
-
       expect(page).to have_css('.location_map')
     end
   end
