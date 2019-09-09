@@ -1,12 +1,13 @@
 <h1>Nearby Events in Your Neighborhood</h1>
 
-<%= facade.local_events %>
 
 <section>
 <% @events.each do |event| %>
-  <div class='event-<%= event.id %>'>
-    <h3 class="title"><%= link_to event.title, event_path(event.id) %></h3>
-    <p class="date"><%= event.date %></p>
-  </div>
+  <% if facade.local_events(current_user.address, event.address) <= event.radius %>
+    <div class='event-<%= event.id %>'>
+      <h3 class="title"><%= link_to event.title, event_path(event.id) %></h3>
+      <p class="date"><%= event.date %></p>
+    </div>
+  <% end %>
 <% end %>
 </section>

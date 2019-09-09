@@ -19,7 +19,7 @@ class EventsController < ApplicationController
   def index
     @events = Event.all
     render locals: {
-      facade: LocalEventsFacade.new("5073 Valentia St, Denver, CO 80238", "8393 Beekman Pl, Denver, CO 80216")
+      facade: LocalEventsFacade.new
     }
   end
 

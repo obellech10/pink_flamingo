@@ -5,8 +5,7 @@ class DistanceMatrixAPI
   end
 
     def retrieve_distance
-      parse_response
-      binding.pry
+      parse_response.delete(" mi").to_f
     end
 
 private

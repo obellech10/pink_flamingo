@@ -1,18 +1,10 @@
 class LocalEventsFacade
-  def initialize(user_ad, event_ad)
-    @user_ad  = user_ad
-    @event_ad = event_ad
-  end
-
-  def local_events
-    grab_local_events
+  def local_events(user_ad, event_ad)
+    grab_local_events(user_ad, event_ad)
   end
 
   private
-    def grab_local_events
+    def grab_local_events(user_ad, event_ad)
       DistanceMatrixAPI.new(user_ad, event_ad).retrieve_distance
     end
-
-    attr_reader :user_ad,
-                :event_ad
 end
