@@ -30,6 +30,7 @@ private
     end
 
     def parse_response
+      binding.pry
       JSON.parse(get_response.body, symbolize_names: true)[:rows].first[:elements].first[:distance][:text]
     end
 end
