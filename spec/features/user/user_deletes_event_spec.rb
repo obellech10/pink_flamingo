@@ -8,7 +8,7 @@ describe "As the host of an event" do
     @secondevent = create(:event, title: "Grilling Party", user: @host1, radius: 1.0, address: "8393 Beekman Pl, Denver, CO 80216")
   end
 
-  describe "I can delete that event and it is no longer visible" do
+  it "I can delete that event and it is no longer visible" do
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@host1)
 
     visit events_path
@@ -16,7 +16,7 @@ describe "As the host of an event" do
     expect(page).to have_content("Pool Party")
     expect(page).to have_content("Grilling Party")
 
-    within(first('.party-list')) do
+    within(first(".event-#{@firstevent.id}")) do
       expect(page).to have_button("Delete Event")
     end
 
