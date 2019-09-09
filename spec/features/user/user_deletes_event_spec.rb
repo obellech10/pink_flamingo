@@ -16,11 +16,11 @@ describe "As the host of an event" do
     expect(page).to have_content("Pool Party")
     expect(page).to have_content("Grilling Party")
 
-    within(first(".event-#{@firstevent.id}")) do
+    within(page.all(".delete-event")[0]) do
       expect(page).to have_button("Delete Event")
+      click_button "Delete Event"
     end
 
-    click_button "Delete Event"
 
     expect(page).to have_content("Are you sure you want to delete this event?")
 

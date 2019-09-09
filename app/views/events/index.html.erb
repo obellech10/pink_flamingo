@@ -7,7 +7,7 @@
     <div class='event-<%= event.id %>'>
       <h3 class="title"><%= link_to event.title, event_path(event.id) %></h3>
       <p class="date"><%= event.date %></p>
-      <p><%= link_to "Delete Event", event_path(event), method: :delete, data: { confirm: "Are you sure?"} %></p>
+      <div class="delete-event"><%= button_to "Delete Event", event_path(event), method: :delete, data: { confirm: "Are you sure?" } %></div>
     </div>
   <% end %>
 <% end %>
