@@ -22,6 +22,9 @@ class EventsController < ApplicationController
 
   def index
     @events = Event.all
+    render locals: {
+      facade: LocalEventsFacade.new
+    }
   end
 
   def update
