@@ -1,0 +1,43 @@
+  <section>
+    <%= form_for @event do |form| %>
+      <div >
+        <%= form.label :title %>
+        <%= form.text_field :title %>
+      </div>
+      <div>
+        <%= form.label :date %>
+        <%= form.text_field :date %>
+      </div>
+      <div>
+        <%= form.label :time %>
+        <%= form.text_field :time %>
+      </div>
+      <div>
+        <%= form.label :address %>
+        <%= form.text_field :address %>
+      </div>
+      <div>
+        <%= form.label :event_type %>
+        <%= form.text_field :event_type %>
+      </div>
+      <div>
+        <%= form.label :food %>
+        <%= form.check_box :food %>
+      </div>
+      <div>
+        <%= form.label :booze %>
+        <%= form.check_box :booze %>
+      </div>
+      <div>
+        <%= form.label :restrictions %>
+        <%= form.text_field :restrictions %>
+      </div>
+      <div>
+        <%= form.label :radius %>
+        <%= form.text_field :radius %>
+      </div>
+      <%= form.submit %>
+    <% end %>
+  </section>
+  </main>
+</div>

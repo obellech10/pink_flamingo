@@ -16,8 +16,22 @@ class EventsController < ApplicationController
     end
   end
 
+  def edit
+    @event = Event.find([params[:id]])
+  end
+
   def index
     @events = Event.all
+  end
+
+  def update
+    @event = Event.find(params[:id])
+    if current_user.id == @event.user_id
+      @event.update(event_params)
+      redirect_to event_path(@event)
+    else
+      render file: 'public/404', status: 404  
+    end
   end
 
   def show

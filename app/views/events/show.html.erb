@@ -11,7 +11,12 @@
     <p>Special restrictions: <%= @event.restrictions %></p>
   </div>
   <div>
-    <p><%= button_to "RSVP" %></p>
+    <%= button_to "RSVP" %>
+  </div>
+  <div>
+    <% if current_user.id == @event.user_id %>
+      <%= button_to "Edit Event", edit_event_path(@event), method: :get %>
+    <% end %>
   </div>
 
   <iframe class='location_map'
