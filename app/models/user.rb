@@ -1,9 +1,9 @@
 class User < ApplicationRecord
   validates_presence_of :name
 
-  has_many :events
-  has_many :event_attendees
-  has_many :credentials
+  has_many :events, dependent: :destroy
+  has_many :event_attendees, dependent: :destroy 
+  has_many :credentials, dependent: :destroy
 
 
   def self.create_with_omniauth(auth)
