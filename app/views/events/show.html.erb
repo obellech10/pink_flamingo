@@ -10,6 +10,11 @@
     <p>Bring Booze? <%= @event.booze %></p>
     <p>Special restrictions: <%= @event.restrictions %></p>
   </div>
+  <div class='rsvp_list'>
+      <% @event_attendees.each do |event_attendee| %>
+      <p>Who's RSVP'd: <%= event_attendee.name %> Reply: <%= event_attendee.rsvp %> Number of guests: <%= event_attendee.number_of_guests %></p>
+      <% end %>
+  </div>
   <div class='rsvp'>
     <% if current_user.id != @event.user_id %>
       <%= form_tag event_event_attendees_path(@event), method: :post do %>
