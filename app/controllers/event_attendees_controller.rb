@@ -1,4 +1,5 @@
 class EventAttendeesController < ApplicationController
+    
 
   def create
     @event = Event.find(params[:event_id])

@@ -16,7 +16,7 @@ describe "As a user who has RSVP'd to an event" do
       fill_in "Number of guests", with: 2
       click_on "RSVP"
     end
-    expect(current_path).to eq(event_path(event))
+    expect(current_path).to eq(event_path(@firstevent))
 
     save_and_open_page
     expect(page).to have_content("Edit RSVP")
