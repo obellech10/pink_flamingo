@@ -11,7 +11,7 @@ describe "As a user who has RSVP'd to an event" do
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@patty)
 
     visit event_path(@firstevent)
-    save_and_open_page
+save_and_open_page
     within ".rsvp" do
       select "I'll be there"
       fill_in "Number of guests", with: 2
