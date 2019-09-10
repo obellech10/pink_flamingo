@@ -18,11 +18,10 @@ describe "As a user who has RSVP'd to an event" do
     end
 
     expect(current_path).to eq(event_path(@firstevent))
-
+save_and_open_page
     expect(page).to have_button("Edit RSVP")
 
     click_button "Edit RSVP"
 
-    expect()
   end
 end
