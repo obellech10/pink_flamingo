@@ -11,21 +11,23 @@
     <p>Special restrictions: <%= @event.restrictions %></p>
   </div>
   <div class='rsvp_list'>
+    <% if @event.user_id == current_user.id %>
+    <p>Who's RSVP'd:</p>
       <% @event_attendees.each do |event_attendee| %>
-
-      <p>Who's RSVP'd: <%= event_attendee.name %> Reply: <%= event_attendee.rsvp %> Number of guests: <%= event_attendee.number_of_guests %></p>
+        <p> <%= event_attendee.name %> Reply: <%= event_attendee.rsvp %> Number of guests: <%= event_attendee.number_of_guests %></p>
       <% end %>
-  </div>
-  <div class='rsvp'>
-    <% if current_user.id != @event.user_id %>
-        <%= form_tag event_event_attendees_path(@event), method: :post do %>
-          <%= select_tag :rsvp, options_for_select(EventAttendee.rsvps) %>
-          <%= label_tag :number_of_guests %>
-          <%= number_field_tag :number_of_guests %>
-          <%= submit_tag "RSVP" %>
+    <% else %>
+      <p>Who's RSVP'd:</p>
+      <% @event_attendees.each do |event_attendee| %>
+        <% if event_attendee.user_id == current_user.id %>
+          <%= render partial: "user_rsvp" %>
+        <% else %>
+          <%= render partial: "visitor_rsvp" %>
         <% end %>
+      <% end %>
     <% end %>
   </div>
+
   <div>
     <% if current_user.id == @event.user_id %>
       <%= button_to "Edit Event", edit_event_path(@event), method: :get %>
