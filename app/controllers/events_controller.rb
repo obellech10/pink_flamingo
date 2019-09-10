@@ -33,7 +33,7 @@ class EventsController < ApplicationController
       @event.update(event_params)
       redirect_to event_path(@event)
     else
-      render file: 'public/404', status: 404  
+      render file: 'public/404', status: 404
     end
   end
 
