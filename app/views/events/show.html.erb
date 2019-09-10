@@ -20,10 +20,11 @@
       <p>Who's RSVP'd:</p>
       <% @event_attendees.each do |event_attendee| %>
         <% if event_attendee.user_id == current_user.id %>
-          <%= render partial: "user_rsvp" %>
+        <p> <%= event_attendee.name %> Reply: <%= event_attendee.rsvp %> Number of guests: <%= event_attendee.number_of_guests %> <%= render partial: "user_rsvp" %></p>
         <% else %>
-          <%= render partial: "visitor_rsvp" %>
+          <p> <%= event_attendee.name %> Reply: <%= event_attendee.rsvp %> Number of guests: <%= event_attendee.number_of_guests %></p>
         <% end %>
+        <%= render partial: "visitor_rsvp" %>
       <% end %>
     <% end %>
   </div>
