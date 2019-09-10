@@ -10,9 +10,14 @@
     <p>Bring Booze? <%= @event.booze %></p>
     <p>Special restrictions: <%= @event.restrictions %></p>
   </div>
-  <div>
+  <div class='rsvp'>
     <% if current_user.id != @event.user_id %>
-      <%= button_to "RSVP" %>
+      <%= form_tag event_event_attendees_path(@event), method: :post do %>
+        <%= select_tag :rsvp, options_for_select(EventAttendee.rsvps) %>
+        <%= label_tag :number_of_guests %>
+        <%= number_field_tag :number_of_guests %>
+        <%= submit_tag "RSVP" %>
+      <% end %>
     <% end %>
   </div>
   <div>
