@@ -10,7 +10,6 @@ describe "as a regular user on an event index page" do
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(patty)
     visit events_path
 
-    save_and_open_page
     expect(page).to have_content(firstevent.title)
     expect(page).to have_content(secondevent.title)
 
