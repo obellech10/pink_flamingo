@@ -13,8 +13,8 @@ describe "As the host of an event" do
 
     visit events_path
 
-    expect(page).to have_content("Pool Party")
-    expect(page).to have_content("Grilling Party")
+    expect(page).to have_content(@firstevent.title)
+    expect(page).to have_content(@secondevent.title)
 
     within(page.all(".delete-event")[0]) do
       expect(page).to have_button("Delete Event")
@@ -26,7 +26,18 @@ describe "As the host of an event" do
 
     expect(current_path).to eq(events_path)
 
-    expect(page).to have_content("Grilling Party")
-    expect(page).to_not have_content("Pool Party")
+    expect(page).to have_content(@secondevent.title)
+    expect(page).to_not have_content(@firstevent.title)
+  end
+
+  it "As a user who did not create the event, I cannot delete the event" do
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@patty)
+
+    visit events_path
+
+    expect(page).to have_content(@firstevent.title)
+    expect(page).to have_content(@secondevent.title)
+
+    expect(page).to_not have_button("Delete Event")
   end
 end
