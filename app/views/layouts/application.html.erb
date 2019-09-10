@@ -18,6 +18,8 @@
 	      <div class="navbar-nav">
 	        <a class="nav-item nav-link" <%= link_to 'Home', root_path %>
 	        <a class="nav-item nav-link" <%= link_to 'Profile', profile_path if current_user %>
+	        <a class="nav-item nav-link" <%= link_to 'Events', events_path if current_user && !current_user.address.nil? %>
+
 	        <a class="nav-item nav-link" <%= link_to 'Logout', logout_path if current_user %>
         </div>
       </div>
