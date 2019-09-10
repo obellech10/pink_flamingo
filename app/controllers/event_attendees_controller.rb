@@ -9,6 +9,7 @@ class EventAttendeesController < ApplicationController
       })
     if @event.save
       flash[:success] = "Thank you for your response!"
+      TwilioFacade.new.sendtext(1, current_user.phone)
     end
     redirect_to event_path(@event)
   end
