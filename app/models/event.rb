@@ -6,5 +6,5 @@ class Event < ApplicationRecord
   validates_presence_of :radius
 
   belongs_to :user
-  has_many :event_attendees, dependent: :destroy
+  has_many :event_attendees
 end

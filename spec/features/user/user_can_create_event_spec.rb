@@ -13,7 +13,7 @@ describe "As a user on my profile page" do
       @food = true
       @booze = true
       @restrictions = "Kids"
-      @radius = 1000.0
+      @radius = 100
     end
 
     it "I see spaces for the date, time, location, radius, type of event, food, alcohol, and restrictions" do
@@ -42,9 +42,8 @@ describe "As a user on my profile page" do
       click_on "Create"
 
       event = Event.last
-      event_id = event.id
 
-      expect(current_path).to eq(event_path(event_id))
+      expect(current_path).to eq(event_path(event.id))
 
       expect(page).to have_content(@title)
       expect(page).to have_content(@date)
