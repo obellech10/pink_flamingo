@@ -20,7 +20,7 @@ gem 'jquery-rails'
 gem 'omniauth-google-oauth2'
 gem 'figaro'
 gem 'google-api-client'
-
+gem "skylight"
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
