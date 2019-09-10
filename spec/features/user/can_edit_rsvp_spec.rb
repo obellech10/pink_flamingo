@@ -11,6 +11,7 @@ describe "As a user who has RSVP'd to an event" do
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@patty)
 
     visit event_path(@firstevent)
+    save_and_open_page
     within ".rsvp" do
       select "I'll be there"
       fill_in "Number of guests", with: 2
@@ -18,7 +19,6 @@ describe "As a user who has RSVP'd to an event" do
     end
 
     expect(current_path).to eq(event_path(@firstevent))
-save_and_open_page
     expect(page).to have_button("Edit RSVP")
 
     click_button "Edit RSVP"
