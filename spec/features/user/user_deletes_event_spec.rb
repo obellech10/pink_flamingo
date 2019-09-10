@@ -22,9 +22,7 @@ describe "As the host of an event" do
     end
 
 
-    expect(page).to have_content("Are you sure you want to delete this event?")
-
-    click_button "Yes"
+    expect(page).to have_content("Your event has been deleted.")
 
     expect(current_path).to eq(events_path)
 

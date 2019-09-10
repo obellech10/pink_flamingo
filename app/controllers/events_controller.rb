@@ -33,7 +33,7 @@ class EventsController < ApplicationController
       @event.update(event_params)
       redirect_to event_path(@event)
     else
-      render file: 'public/404', status: 404  
+      render file: 'public/404', status: 404
     end
   end
 
@@ -43,6 +43,14 @@ class EventsController < ApplicationController
     render locals: {
       facade: EventLocationFacade.new(address)
     }
+  end
+
+  def destroy
+    @event = Event.find(params[:id])
+    @event.destroy
+    flash[:success] = "Your event has been deleted."
+
+    redirect_to events_path
   end
 
   private
