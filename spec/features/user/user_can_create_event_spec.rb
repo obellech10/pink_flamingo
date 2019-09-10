@@ -7,7 +7,7 @@ describe "As a user on my profile page" do
       @date = "08/30/2019"
       @time = "7 - 10 pm"
       @address = "3959 Road Place"
-      @user = User.create!(name: 'Jon Doe', address: "123 Main St", city: "Denver", state: "CO", zip: 80203, email: "joe@example.com")
+      @user = User.create!(name: 'Jon Doe', address: "123 Main St", city: "Denver", state: "CO", zip: 80203, email: "joe@example.com", phone: "9193213456")
       @id = @user.id
       @event_type = "Pool Party"
       @food = true

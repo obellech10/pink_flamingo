@@ -9,6 +9,7 @@ class EventsController < ApplicationController
     event = current_user.events.create(event_params)
     if event.save
       flash[:success] = "#{event.title} was created!"
+      TwilioFacade.new.sendtext(0, current_user.phone)
       redirect_to event_path(event)
     else
       flash[:warning] = "There was an error: please try again."
@@ -49,7 +50,7 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
     @event.destroy
     flash[:success] = "Your event has been deleted."
-
+    TwilioFacade.new.sendtext(2, current_user.phone)
     redirect_to events_path
   end
 
