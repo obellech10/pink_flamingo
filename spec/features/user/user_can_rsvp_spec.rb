@@ -12,6 +12,10 @@ describe "User can rsvp" do
 
       visit event_path(@event)
 
+      user = User.create!(name: 'Jules Doe', address: "123 Main St", city: "Denver", state: "CO", zip: 80203, email: "joe@example.com", phone: '6765432346')
+      user_1 = User.create!(name: 'Jules Doe', address: "124 Main St", city: "Denver", state: "CO", zip: 80203, email: "joe@example.com", phone: '6766432346')
+      event = user.events.create!(title: "Football Watch Party", date: "9-13-19", time: "8:00pm", address: "123 Main St", food: true, booze: true, radius: 2.0)
+
       within ".rsvp" do
         select "I'll be there"
         fill_in "Number of guests", with: 2

@@ -1,6 +1,6 @@
 class LocalEventsFacade
-  def local_events(user_ad, event_ad)
-    grab_local_events(user_ad, event_ad)
+  def user_within_event_radius(user_ad, event_ad, event_radius)
+    grab_local_events(user_ad, event_ad) <= event_radius
   end
 
   private
