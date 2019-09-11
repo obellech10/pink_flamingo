@@ -1,5 +1,5 @@
 body {
-	/* background-color: #575252; */
+  background-color: #e6e1e5;
   color: #e61ea4;
 	text-align: center;
   background-image: url("https://static.vecteezy.com/system/resources/previews/000/531/754/non_2x/vector-illustration-pink-flamingo-isolated-on-white-background.jpg");
@@ -9,7 +9,7 @@ body {
 }
 
 input[type=submit] {
-  width: 20%;
+  /* width: 20%; */
   background-color: #91959c;
   color: white;
   padding: 5px 5px;
@@ -21,4 +21,20 @@ input[type=submit] {
 
 input[type=submit]:hover {
   background-color: #91959c;
+}
+
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  margin: auto;
+  width: 400px;
+}
+
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.container {
+  padding: 2px 16px;
 }
