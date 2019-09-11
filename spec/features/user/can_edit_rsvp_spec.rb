@@ -22,7 +22,7 @@ describe "As a user who has RSVP'd to an event" do
 
     within ".rsvp" do
       select "Not this time!"
-      fill_in "Number of guests", with: 1
+      fill_in "Number of guests", with: 0
       click_on "Edit RSVP"
     end
 
