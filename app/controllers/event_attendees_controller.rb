@@ -20,7 +20,8 @@ class EventAttendeesController < ApplicationController
   def update
     event = Event.find(params[:event_id])
     attendee = event.event_attendees.find_by(user_id: current_user.id)
-    attendee.update(rsvp: params["rsvp"].to_i)
+    attendee.update(rsvp: params[:rsvp].to_i)
+    attendee.update(number_of_guests: params[:number_of_guests].to_i)
     if attendee.save
       flash[:success] = "RSVP updated"
       redirect_to event_path(event)
@@ -29,5 +30,4 @@ class EventAttendeesController < ApplicationController
       redirect_to event_path(event)
     end
   end
-
 end
