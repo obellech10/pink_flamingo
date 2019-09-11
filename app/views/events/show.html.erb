@@ -18,15 +18,21 @@
     <% end %>
   </div>
 
-  <div class='rsvp'>
   <% if current_user.id != @event.user_id %>
-    <% if @event_attendees.includes?(current_user.id) %>
-      <%= render partial: "rsvp", locals: { path: event_event_attendee_path(@event.id, event_attendee.id), method: :patch, button_text: "Edit RSVP"} %>
-    <% else %>
-      <%= render partial: "rsvp", locals: { path: event_event_attendees_path(@event.id), method: :post, button_text: "RSVP"} %>
+  <div class='rsvp'>
+  <% if @event_attendees == [] %>
+    <%= render partial: "rsvp", locals: { path: event_event_attendees_path(@event.id), method: :post, button_text: "RSVP"} %>
+  <% else %>
+    <% @event_attendees.each do |event_attendee| %>
+      <% if event_attendee.user_id == current_user.id  %>
+        <%= render partial: "rsvp", locals: { path: event_event_attendee_path(@event.id, event_attendee.id), method: :patch, button_text: "Edit RSVP" } %>
+      <% else %>
+        <%= render partial: "rsvp", locals: { path: event_event_attendees_path(@event.id), method: :post, button_text: "RSVP"} %>
+      <% end %>
     <% end %>
   <% end %>
 </div>
+<% end %>
 
   <iframe class='location_map'
     width="600"
