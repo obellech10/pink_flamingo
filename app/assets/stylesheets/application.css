@@ -2,7 +2,8 @@ body {
   background-color: #e6e1e5;
   color: #e61ea4;
 	text-align: center;
-  background-image: url("https://static.vecteezy.com/system/resources/previews/000/531/754/non_2x/vector-illustration-pink-flamingo-isolated-on-white-background.jpg");
+  background-image: url("/assets/pink_flamingo.jpg");
+  /* background-image: url("https://static.vecteezy.com/system/resources/previews/000/531/754/non_2x/vector-illustration-pink-flamingo-isolated-on-white-background.jpg"); */
   background-repeat: no-repeat;
   background-position: right bottom;
   background-attachment: fixed;
