@@ -3,6 +3,9 @@
 
 <section>
 <% @events.each do |event| %>
+  <div class="card">
+    <div class="container">
+
   <% if facade.user_within_event_radius(current_user.address, event.address, event.radius) %>
     <div class='event-<%= event.id %>'>
       <h3 class="title"><%= link_to event.title, event_path(event.id) %></h3>
@@ -12,5 +15,8 @@
       <% end %>
     </div>
   <% end %>
+  </div>
+</div>
+<br>
 <% end %>
 </section>
