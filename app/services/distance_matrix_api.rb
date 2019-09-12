@@ -11,6 +11,7 @@ class DistanceMatrixAPI
 private
     attr_reader :user_ad,
                 :event_ad
+                
     def connection
         Faraday.new(:url => 'https://maps.googleapis.com') do |f|
         f.request  :url_encoded
