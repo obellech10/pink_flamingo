@@ -1,6 +1,8 @@
 class User < ApplicationRecord
   validates_presence_of :name
 
+
+
   has_many :events
   has_many :event_attendees
   has_many :credentials

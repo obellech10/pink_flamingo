@@ -1,6 +1,5 @@
 <header class="masthead text-center text-white">
   <div class="masthead-content">
-
     <div>
 
       <h2 class="masthead-subheading mb-0"><%= facade.specific_event.title %></h2>
@@ -20,10 +19,12 @@
           <% else %>
              <%= render partial: "rsvp", locals: { path: event_event_attendees_path(facade.specific_event.id), method: :post, button_text: "RSVP"} %>
           <% end %>
+
         <% end %>
       <% end %>
-    </div><br>
+      </div><br>
     <% end %>
+
     <div class="text-left shadow-lg p-3 mb-5 bg- rounded" >
 
 <div class="container-fluid">

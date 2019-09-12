@@ -13,7 +13,7 @@ RSpec.describe 'As a user' do
 
       visit '/events'
 
-      within ".event-#{event_2.id}" do
+      within "#event-#{event_2.id}" do
         expect(page).to have_content("Book Club")
         expect(page).to have_link(event_2.title)
         expect(page).to have_content("10-13-19")
@@ -27,7 +27,7 @@ RSpec.describe 'As a user' do
 
     it "I cannot access events if I do not have an address" do
       user = User.create!(name: "Jori")
-      create(:event, user: user)
+        create(:event, user: user)
 
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 

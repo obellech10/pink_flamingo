@@ -5,10 +5,13 @@
         <main>
           <h1>Fill Out Your Profile:</h1>
           <div>
+
             <div class="row">
             <div class="col-xl ">
             <div class="col-xl container4" style="align-content: center; flex-wrap: wrap;">
             <div class="text-center shadow-lg p-3 mb-5 bg- rounded" >
+            <div class="label-style">
+
             <%= form_for @user, url: user_path(current_user), method: :patch do |form| %>
               <div>
               <br>
@@ -43,6 +46,7 @@
               <br>
               <%= form.submit 'Submit Profile Info' %>
             <% end %>
+            </div>
           </div>
           </div>
           </div>

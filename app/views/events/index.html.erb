@@ -3,22 +3,35 @@
     <div class="masthead-content">
       <h2 class="masthead-subheading mb-0">Nearby Events in Your Neighborhood</h2>
 
-      <% cache(action: "index", action_suffix: "event_list") do %>
-      <% facade.all_events.each do |event| %>
-          <div class="event-container">
-            <% if facade.user_within_event_radius(current_user.address, event.address, event.radius) %>
-              <div class='event-<%= event.id %>'>
-              <h1 class="title"><%= link_to event.title, event_path(event.id) %></h1>
-              <h1 class="date"><%= event.date %></h1>
-              <% if current_user.id == event.user_id %>
-              <div class="delete-event"><%= button_to "Delete Event", event_path(event), method: :delete, data: { confirm: "Are you sure?" } %></div>
-              </div>
+      <section class="details-card">
+        <div class="container-fluid">
+          <div class="row">
+
+
+          <% cache(action: "index", action_suffix: "event_list") do %>
+          <% facade.all_events.each do |event| %>
+              <div class="col-md-12 p-3">
+                <% if facade.user_within_event_radius(current_user.address, event.address, event.radius) %>
+                  <div class="card-content" id='event-<%= event.id %>'>
+                    <div class="card-header">
+                      <h1 class="card-title text-center"><%= link_to event.title, event_path(event.id) %></h1>
+                      <h1 class="date"><%= event.date %></h1>
+                      <h1 class="time"><%= event.time %></h1>
+                      <% if current_user.id == event.user_id %>
+                      <div class="delete-event"><%= button_to "Delete Event", event_path(event), method: :delete, data: { confirm: "Are you sure?" } %></div>
+                    </div>
+                  </div>
+                  <% end %>
+                </div>
               <% end %>
-            </div>
+            <% end %>
           <% end %>
-        <% end %>
+          </div>
+        </div>
+      </section>
+
+
       </div>
       <br>
-      <% end %>
     </div>
 </header>

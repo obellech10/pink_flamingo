@@ -20,6 +20,7 @@
     <style type="text/css">@font-face { font-family: 'simple-line-icons'; src: url('chrome-extension://mihdfbecejheednfigjpdacgeilhlmnf/assets/fonts/Simple-Line-Icons.ttf') format('truetype'); }</style>
   </head>
   <body>
+
     <% if current_user != nil %>
     <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
       <div class="container">
@@ -50,6 +51,7 @@
         <%= content_tag :div, msg, class: name %>
       <% end %>
     </div>
+    
     <%= yield %>
 
     <footer class="py-5 bg-black">
