@@ -25,16 +25,16 @@ RSpec.describe EventAttendee, type: :model do
 			user9 = create(:user)
 			user10 = create(:user)
 
-			ea1 = create(:event_attendees, number_of_guests: 5, user: user1, event: event1, rsvp: 2 )
-			ea2 = create(:event_attendees, number_of_guests: 5, user: user2, event: event1, rsvp: 2)
-			ea3 = create(:event_attendees, number_of_guests: 5, user: user3, event: event1, rsvp: 2)
-			ea4 = create(:event_attendees, number_of_guests: 0, user: user4, event: event1, rsvp: 1)
-			ea5 = create(:event_attendees, number_of_guests: 5, user: user5, event: event1, rsvp: 2)
-			ea6 = create(:event_attendees, number_of_guests: 0, user: user6, event: event1, rsvp: 0)
-			ea7 = create(:event_attendees, number_of_guests: 0, user: user7, event: event1, rsvp: 0)
-			ea8 = create(:event_attendees, number_of_guests: 0, user: user8, event: event1, rsvp: 1)
-			ea9 = create(:event_attendees, number_of_guests: 3, user: user9, event: event2, rsvp: 2)
-			ea10 = create(:event_attendees, number_of_guests: 3, user: user10, event: event2, rsvp: 2)
+			ea1 = user1.event_attendees.create(number_of_guests: 5, event: event1, rsvp: 2 )
+			ea2 = user2.event_attendees.create(number_of_guests: 5, event: event1, rsvp: 2)
+			ea3 = user3.event_attendees.create(number_of_guests: 5, event: event1, rsvp: 2)
+			ea4 = user4.event_attendees.create(number_of_guests: 0, event: event1, rsvp: 1)
+			ea5 = user5.event_attendees.create(number_of_guests: 5, event: event1, rsvp: 2)
+			ea6 = user6.event_attendees.create(number_of_guests: 0, event: event1, rsvp: 0)
+			ea7 = user7.event_attendees.create(number_of_guests: 0, event: event1, rsvp: 0)
+			ea8 = user8.event_attendees.create(number_of_guests: 0, event: event1, rsvp: 1)
+			ea9 = user9.event_attendees.create(number_of_guests: 3, event: event2, rsvp: 2)
+			ea10 = user10.event_attendees.create(number_of_guests: 3, event: event2, rsvp: 2)
 
 		#ea 1, 2, 3, and 5 are coming with 5 guests each
 
