@@ -37,7 +37,7 @@ describe "As a logged in User" do
     expect(current_path).to eq(edit_user_path(user2))
 
     fill_in "user[address]", with: " "
-    fill_in "user[zip]", with: " "
+    fill_in "user[zip]", with: 80239
 
     click_button "Submit Profile Info"
 

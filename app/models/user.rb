@@ -1,8 +1,8 @@
 class User < ApplicationRecord
-  validate_presence_of :name
-  validate_presence_of :address
-  validate_presence_of :city
-  validate_presence_of :state
+  validates_presence_of :name
+  validates_presence_of :address
+  validates_presence_of :city
+  validates_presence_of :state
 
   has_many :events
   has_many :event_attendees
