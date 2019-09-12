@@ -1,23 +1,29 @@
-<h1>User Profile</h1>
-
-<section id="user-info">
-
-  <% if current_user.address.nil? %>
-    <%= button_to "Complete your profile", edit_user_path(current_user), method: :get %>
-  <% else %>
-    <br>
-      <h3 class="user-name">Welcome back, <%= current_user.name %>!</h3>
-      <br>
-      <h5>Profile Info:</h5>
-      <h6 class="user-address"><%= current_user.address %></h6>
-      <h6 class="user-state-zip"><%= current_user.city %>, <%= current_user.state %> <%= current_user.zip %></h6>
-      <h6 class="user-phone"><%= current_user.phone %> </h6>
-      <h6 class="user-email"><%= current_user.email %> </h6>
-      <br>
-      <%= button_to "Update Profile", edit_user_path(current_user), method: :get %>
-      <br>
-      <%= button_to "Create an Event", new_event_path, method: :get %>
-      <br>
-      <%= link_to "Events in Your Neighborhood", events_path %>
-  <% end %>
-</section>
+<header class="masthead text-center text-white">
+  <div class="wrap">
+    <div class="masthead-content">
+      <div class="container">
+        <section id="user-info">
+        <% if current_user.address.nil? %>
+          <%= button_to "Complete your profile", edit_user_path(current_user), method: :get %>
+        <% else %>
+          <br>
+          <h2 class="masthead-subheading mb-0">Welcome back, <%= current_user.name %>!</h2>
+          <br>
+          <h1>Profile Info:</h1>
+          <h2 class="user-address"><%= current_user.address %></h2>
+          <h2 class="user-state-zip"><%= current_user.city %>, <%= current_user.state %> <%= current_user.zip %></h2>
+          <h2 class="user-phone"><%= current_user.phone %> </h2>
+          <h2 class="user-email"><%= current_user.email %> </h2>
+          <br>
+          <%= button_to "Update Profile", edit_user_path(current_user), method: :get %>
+          <br>
+          <%= button_to "Create an Event", new_event_path, method: :get %>
+          <br>
+          <%= button_to "Events in Your Neighborhood", events_path, method: :get %>
+          <br>
+          </section>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</header>
