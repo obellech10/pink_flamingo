@@ -8,13 +8,9 @@ class UsersController < ApplicationController
 
   def update
     user = current_user
-    if user.update(user_params)
-      flash[:success] = "Welcome to your profile, #{user.name}!"
-      redirect_to profile_path
-    else
-      flash[:error] = "Oh no! Something went wrong. Please try again."
-      redirect_to profile_path
-    end
+    user.update(user_params)
+    flash[:success] = "Welcome to your profile, #{user.name}!"
+    redirect_to profile_path
   end
 
   private
