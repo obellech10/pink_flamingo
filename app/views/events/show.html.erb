@@ -6,8 +6,8 @@
       <h2>Time: <%= @event.time %></h2>
       <h2>Address: <%= @event.address %></h2>
       <h2>Type: <%= @event.event_type %></h2>
-      <h2>Bring Food? <%= @event.food %></h2>
-      <h2>Bring Booze? <%= @event.booze %></h2>
+      <h2>Bring Food? <%= boolean_to_words(@event.food) %></h2>
+      <h2>Bring Booze? <%= boolean_to_words(@event.booze) %></h2>
       <h2>Special restrictions: <%= @event.restrictions %></h2>
     </div><br>
 
