@@ -19,7 +19,7 @@ RSpec.describe 'As a user' do
 
       expect(page).to have_content("Nearby Events")
 
-      within ".event-#{event_2.id}" do
+      within "#event-#{event_2.id}" do
         expect(page).to have_content(event_2.title)
         expect(page).to have_link(event_2.title)
         expect(page).to have_content("10-13-19")

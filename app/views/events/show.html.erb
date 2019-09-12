@@ -1,42 +1,50 @@
 <header class="masthead text-center text-white">
   <div class="masthead-content">
-    <h2 class="masthead-subheading mb-0"><%= @event.title %></h2>
+    <h2 class="masthead-subheading mb-0"><%= facade.specific_event.title %></h2>
     <div><br>
-      <h2>Date: <%= @event.date %></h2>
-      <h2>Time: <%= @event.time %></h2>
-      <h2>Address: <%= @event.address %></h2>
-      <h2>Type: <%= @event.event_type %></h2>
-      <h2>Bring Food? <%= @event.food %></h2>
-      <h2>Bring Booze? <%= @event.booze %></h2>
-      <h2>Special restrictions: <%= @event.restrictions %></h2>
+
+      <h2>Date: <%= facade.specific_event.date %></h2>
+      <h2>Time: <%= facade.specific_event.time %></h2>
+      <h2>Address: <%= facade.specific_event.address %></h2>
+      <h2>Type: <%= facade.specific_event.event_type %></h2>
+      <h2>Bring Food? <%= boolean_to_words(facade.specific_event.food) %></h2>
+      <h2>Bring Booze? <%= boolean_to_words(facade.specific_event.booze) %></h2>
+      <h2>Special restrictions: <%= facade.specific_event.restrictions %></h2>
+
     </div><br>
 
     <div class='rsvp_list' style= "font-size: 20px;"><br>
       <h2>Who's RSVP'd:</h2>
-      <% @event_attendees.each do |event_attendee| %>
+      <% facade.event_attendees.each do |event_attendee| %>
         <p><%= event_attendee.name %> Reply: <%= event_attendee.rsvp %> Number of guests: <%= event_attendee.number_of_guests %></p>
       <% end %>
     </div><br>
 
-    <% if current_user.id != @event.user_id %>
+    <% if current_user.id != facade.specific_event.user_id %>
     <div class='rsvp' style= "font-size: 20px;">
-      <% if @event_attendees == [] %>
-        <%= render partial: "rsvp", locals: { path: event_event_attendees_path(@event.id), method: :post, button_text: "RSVP"} %>
+      <% if facade.event_attendees == [] %>
+        <%= render partial: "rsvp", locals: { path: event_event_attendees_path(facade.specific_event.id), method: :post, button_text: "RSVP"} %>
       <% else %>
-        <% @event_attendees.each do |event_attendee| %>
+        <% facade.event_attendees.each do |event_attendee| %>
           <% if event_attendee.user_id == current_user.id  %>
-            <%= render partial: "rsvp", locals: { path: event_event_attendee_path(@event.id, event_attendee.id), method: :patch, button_text: "Edit RSVP" } %>
+            <%= render partial: "rsvp", locals: { path: event_event_attendee_path(facade.specific_event.id, event_attendee.id), method: :patch, button_text: "Edit RSVP" } %>
           <% else %>
+<<<<<<< HEAD
             <% render partial: "rsvp", locals: { path: event_event_attendees_path(@event.id), method: :post, button_text: "RSVP"} %>
+=======
+             <%= render partial: "rsvp", locals: { path: event_event_attendees_path(facade.specific_event.id), method: :post, button_text: "RSVP"} %>
+>>>>>>> d8020fee5c46f16b2bf7cff9a69ce77c2e177cae
           <% end %>
+
         <% end %>
       <% end %>
-    </div><br>
+      </div><br>
     <% end %>
+    </div>
 
     <div><br>
-      <% if current_user.id == @event.user_id %>
-        <%= button_to "Edit Event", edit_event_path(@event), method: :get %>
+      <% if current_user.id == facade.specific_event.user_id %>
+        <%= button_to "Edit Event", edit_event_path(facade.specific_event), method: :get %>
       <% end %>
     </div><br>
 

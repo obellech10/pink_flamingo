@@ -3,6 +3,10 @@ class LocalEventsFacade
     grab_local_events(user_ad, event_ad) <= event_radius
   end
 
+  def all_events
+    Event.all
+  end
+
   private
     def grab_local_events(user_ad, event_ad)
       DistanceMatrixAPI.new(user_ad, event_ad).retrieve_distance

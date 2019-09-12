@@ -12,7 +12,7 @@ class EventsController < ApplicationController
       TwilioFacade.new.sendtext(0, current_user.phone)
       redirect_to event_path(event)
     else
-      flash[:warning] = "There was an error: please try again."
+      flash[:error] = "There was an error: please try again."
       redirect_to new_event_path
     end
   end
@@ -22,7 +22,6 @@ class EventsController < ApplicationController
   end
 
   def index
-    @events = Event.all
     render locals: {
       facade: LocalEventsFacade.new
     }
@@ -41,9 +40,8 @@ class EventsController < ApplicationController
   def show
     @event = Event.find(params[:id])
     address = @event.address
-    @event_attendees = EventAttendee.attendees(@event)
     render locals: {
-      facade: EventLocationFacade.new(address)
+      facade: EventLocationFacade.new(address, params[:id])
     }
   end
 
