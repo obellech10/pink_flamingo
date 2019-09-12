@@ -23,4 +23,25 @@ describe "As a logged in User" do
     expect(page).to have_content("123 New St")
     expect(page).to have_content(80021)
   end
+
+  it "cannot update without correct params" do
+    user2 = create(:user)
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user2)
+
+    visit profile_path
+
+    expect(page).to have_button("Update Profile")
+
+    click_button "Update Profile"
+
+    expect(current_path).to eq(edit_user_path(user2))
+
+    fill_in "user[address]", with: " "
+    fill_in "user[zip]", with: " "
+
+    click_button "Submit Profile Info"
+
+    expect(current_path).to eq(profile_path)
+    expect(page).to have_content("Oh no! Something went wrong. Please try again.")
+  end
 end

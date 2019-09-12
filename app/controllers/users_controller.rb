@@ -12,7 +12,7 @@ class UsersController < ApplicationController
       flash[:success] = "Welcome to your profile, #{user.name}!"
       redirect_to profile_path
     else
-      flash[:error] = "Oh no! Something went wrong..."
+      flash[:error] = "Oh no! Something went wrong. Please try again."
       redirect_to new_user_path
     end
   end
