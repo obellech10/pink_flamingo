@@ -12,7 +12,7 @@ class EventsController < ApplicationController
       TwilioFacade.new.sendtext(0, current_user.phone)
       redirect_to event_path(event)
     else
-      flash[:warning] = "There was an error: please try again."
+      flash[:error] = "There was an error: please try again."
       redirect_to new_event_path
     end
   end
