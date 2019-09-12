@@ -36,7 +36,7 @@ describe "As a logged in User on my profile page" do
       expect(current_path).to eq(profile_path)
 
       within(page.first("#user-info")) do
-        expect(page).to have_css(".user-name")
+        expect(page).to have_css(".masthead-subheading")
       end
 
       expect(page.all(".user-address").first).to have_content(@address)

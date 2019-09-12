@@ -16,7 +16,7 @@ describe "As as a user on my events show page" do
 
     visit profile_path
 
-    click_on "Events in Your Neighborhood"
+    click_on "Events"
 
     expect(page).to have_content(@dumbevent.title)
 
