@@ -11,9 +11,23 @@ before_script:
   - psql -c 'create database travis_ci_test;' -U postgres
   # - ruby ~/turing/3module/projects/pink_flamingo_microservice/app/controllers/twilio_service.rb
 
-before_script: 
+before_script:
   - psql -c 'create database twilio_test;' -U postgres
   - /turing/3module/projects/pink_flamingo_microservice/app/controllers
   - "bundle exec rails server -p 3000 -d"
 
 script: bundle exec rspec
+
+
+# Details for deploying to heroku
+# deploy:
+#   provider: heroku
+#   api_key:
+#     secure: YOUR_SECURE_KEY
+#   app:
+#     develop: YOUR_DEVELOPMENT_APP
+#     master: YOUR_PRODUCTION_APP
+#   on:
+#     repo: YOUR_GITHUB_REPO
+#   run:
+#     - "rails db:migrate"
