@@ -20,6 +20,7 @@
     <style type="text/css">@font-face { font-family: 'simple-line-icons'; src: url('chrome-extension://mihdfbecejheednfigjpdacgeilhlmnf/assets/fonts/Simple-Line-Icons.ttf') format('truetype'); }</style>
   </head>
   <body>
+    <% if current_user != nil %>
     <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
       <div class="container">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -42,6 +43,7 @@
         </div>
       </div>
     </nav>
+    <% end %>
 
     <div class="flash-message">
       <% flash.each do |name, msg| %>
