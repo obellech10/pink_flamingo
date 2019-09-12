@@ -1,34 +1,47 @@
-<div class="user-profile">
-  <main>
-<h4>Create Your Profile:</h4>
-  <section>
-    <%= form_for @user, url: user_path(current_user), method: :patch do |form| %>
-      <div>
-        <%= form.label :address %>
-        <%= form.text_field :address %>
+<header class="masthead text-center text-white">
+  <div class="wrap">
+    <div class="masthead-content">
+      <div class="user-profile", style="font-size: 25px;"">
+        <main>
+          <h1>Fill Out Your Profile:</h1>
+          <div>
+            <%= form_for @user, url: user_path(current_user), method: :patch do |form| %>
+              <div>
+              <br>
+              <%= form.label :address %>
+              <%= form.text_field :address %>
+              </div>
+              <br>
+              <div>
+              <%= form.label :city %>
+              <%= form.text_field :city %>
+              </div>
+              <br>
+              <div>
+              <%= form.label :state %>
+              <%= form.text_field :state %>
+              </div>
+              <br>
+              <div>
+              <%= form.label :zip %>
+              <%= form.text_field :zip %>
+              </div>
+              <br>
+              <div>
+              <%= form.label :phone %>
+              <%= form.telephone_field :phone %>
+              </div>
+              <br>
+              <div>
+              <%= form.label :email %>
+              <%= form.email_field :email %>
+              </div>
+              <br>
+              <%= form.submit 'Submit Profile Info' %>
+            <% end %>
+          </div>
+        </main>
       </div>
-      <div>
-        <%= form.label :city %>
-        <%= form.text_field :city %>
-      </div>
-      <div>
-        <%= form.label :state %>
-        <%= form.text_field :state %>
-      </div>
-      <div>
-        <%= form.label :zip %>
-        <%= form.text_field :zip %>
-      </div>
-      <div>
-        <%= form.label :phone %>
-        <%= form.telephone_field :phone %>
-      </div>
-      <div>
-        <%= form.label :email %>
-        <%= form.email_field :email %>
-      </div>
-      <%= form.submit 'Submit Profile Info' %>
-    <% end %>
-  </section>
-  </main>
-</div>
+    </div>
+  </div>
+</header>
