@@ -16,7 +16,6 @@
   padding: 20px;
   display:flex;
   flex-direction:column;
-  // justify-content: space-between;
 }
 
 input[type=submit] {
@@ -37,5 +36,12 @@ input[type=submit]:hover {
 event-container {
   border-color: black;
   background-color: gray;
-  // background-image: url("pink_flamingo.jpg")
+}
+
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 25%;
+  border-radius: 175px;
 }
