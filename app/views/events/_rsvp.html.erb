@@ -1,5 +1,7 @@
 <%= form_tag path, method: method do %>
-<%= select_tag :rsvp, options_for_select(EventAttendee.rsvps) %>
+  <%= label_tag :your_response %>
+  <%= select_tag :rsvp, options_for_select(EventAttendee.rsvps) %>
+  <br>
   <%= label_tag :number_of_guests %>
   <%= number_field_tag :number_of_guests %>
   <%= submit_tag button_text %>
