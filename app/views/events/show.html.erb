@@ -37,8 +37,8 @@
         <h1> Time: <%= facade.specific_event.time %></h1>
         <h1> Address: <%= facade.specific_event.address %></h1>
         <h1> Type: <%= facade.specific_event.event_type %></h1>
-        <h1> Bring Food? <%= facade.specific_event.food %></h1>
-        <h1> Bring Booze? <%= facade.specific_event.booze %></h1>
+        <h1> Bring Food? <%= boolean_to_words(facade.specific_event.food) %></h1>
+        <h1> Bring Booze? <%= boolean_to_words(facade.specific_event.booze) %></h1>
         <h1> Special restrictions: <%= facade.specific_event.restrictions %></h1>
       </div>
   </div>
