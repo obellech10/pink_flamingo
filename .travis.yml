@@ -9,5 +9,6 @@ services:
 
 before_script:
   - psql -c 'create database travis_ci_test;' -U postgres
+  - ~/turing/3module/projects/pink_flamingo_microservice/app/controllers ruby twilio_service.rb
 
 script: bundle exec rspec
