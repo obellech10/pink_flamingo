@@ -27,7 +27,7 @@ RSpec.describe 'As a user' do
 
     it "I cannot access events if I do not have an address" do
       user = User.create!(name: "Jori")
-      create(:event, user: user)
+        create(:event, user: user)
 
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
