@@ -1,22 +1,22 @@
-<h1>Nearby Events in Your Neighborhood</h1>
+<header class="masthead text-center text-white">
+  <div class="wrap">
+    <div class="masthead-content">
+      <h2 class="masthead-subheading mb-0">Nearby Events in Your Neighborhood</h2>
 
-
-<section>
-<% @events.each do |event| %>
-  <div class="card">
-    <div class="container">
-
-  <% if facade.user_within_event_radius(current_user.address, event.address, event.radius) %>
-    <div class='event-<%= event.id %>'>
-      <h3 class="title"><%= link_to event.title, event_path(event.id) %></h3>
-      <p class="date"><%= event.date %></p>
-      <% if current_user.id == event.user_id %>
-        <div class="delete-event"><%= button_to "Delete Event", event_path(event), method: :delete, data: { confirm: "Are you sure?" } %></div>
+      <% @events.each do |event| %>
+      <div class="event-container">
+        <% if facade.user_within_event_radius(current_user.address, event.address, event.radius) %>
+          <div class='event-<%= event.id %>'>
+          <h1 class="title"><%= link_to event.title, event_path(event.id) %></h1>
+          <h1 class="date"><%= event.date %></h1>
+          <% if current_user.id == event.user_id %>
+          <div class="delete-event"><%= button_to "Delete Event", event_path(event), method: :delete, data: { confirm: "Are you sure?" } %></div>
+          </div>
+          <% end %>
+        </div>
+        <% end %>
+      </div>
+      <br>
       <% end %>
     </div>
-  <% end %>
-  </div>
-</div>
-<br>
-<% end %>
-</section>
+</header>
