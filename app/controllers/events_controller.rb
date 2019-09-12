@@ -22,7 +22,6 @@ class EventsController < ApplicationController
   end
 
   def index
-    @events = Event.all
     render locals: {
       facade: LocalEventsFacade.new
     }
@@ -41,7 +40,6 @@ class EventsController < ApplicationController
   def show
     @event = Event.find(params[:id])
     address = @event.address
-    # @event_attendees = EventAttendee.attendees(@event)
     render locals: {
       facade: EventLocationFacade.new(address, params[:id])
     }

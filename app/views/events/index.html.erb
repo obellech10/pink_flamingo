@@ -3,7 +3,7 @@
     <div class="masthead-content">
       <h2 class="masthead-subheading mb-0">Nearby Events in Your Neighborhood</h2>
 
-      <% @events.each do |event| %>
+      <% facade.all_events.each do |event| %>
       <div class="event-container">
         <% if facade.user_within_event_radius(current_user.address, event.address, event.radius) %>
           <div class='event-<%= event.id %>'>
