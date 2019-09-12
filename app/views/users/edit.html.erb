@@ -5,6 +5,7 @@
         <main>
           <h1>Fill Out Your Profile:</h1>
           <div>
+            <div class="label-style">
             <%= form_for @user, url: user_path(current_user), method: :patch do |form| %>
               <div>
               <br>
@@ -39,6 +40,7 @@
               <br>
               <%= form.submit 'Submit Profile Info' %>
             <% end %>
+            </div>
           </div>
         </main>
       </div>

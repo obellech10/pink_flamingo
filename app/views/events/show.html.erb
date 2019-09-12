@@ -18,21 +18,22 @@
       <% end %>
     </div><br>
 
+    <div class="label-style">
     <% if current_user.id != @event.user_id %>
     <div class='rsvp' style= "font-size: 20px;">
       <% if @event_attendees == [] %>
         <%= render partial: "rsvp", locals: { path: event_event_attendees_path(@event.id), method: :post, button_text: "RSVP"} %>
-      <% else %>
+      <% elsif %>
         <% @event_attendees.each do |event_attendee| %>
-          <% if event_attendee.user_id == current_user.id  %>
+          <% event_attendee.user_id == current_user.id  %>
             <%= render partial: "rsvp", locals: { path: event_event_attendee_path(@event.id, event_attendee.id), method: :patch, button_text: "Edit RSVP" } %>
-          <% else %>
-            <%# <%= render partial: "rsvp", locals: { path: event_event_attendees_path(@event.id), method: :post, button_text: "RSVP"} %> %>
-          <% end %>
-        <% end %>
+            <% end %>
+      <% elsif %>
+            <%= render partial: "rsvp", locals: { path: event_event_attendees_path(@event.id), method: :post, button_text: "RSVP"} %>
       <% end %>
-    </div><br>
+      </div><br>
     <% end %>
+    </div>
 
     <div><br>
       <% if current_user.id == @event.user_id %>
