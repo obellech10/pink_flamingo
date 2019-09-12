@@ -27,7 +27,7 @@
           <% if event_attendee.user_id == current_user.id  %>
             <%= render partial: "rsvp", locals: { path: event_event_attendee_path(@event.id, event_attendee.id), method: :patch, button_text: "Edit RSVP" } %>
           <% else %>
-            <% <%= render partial: "rsvp", locals: { path: event_event_attendees_path(@event.id), method: :post, button_text: "RSVP"} %> %>
+            <% render partial: "rsvp", locals: { path: event_event_attendees_path(@event.id), method: :post, button_text: "RSVP"} %>
           <% end %>
         <% end %>
       <% end %>
