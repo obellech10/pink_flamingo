@@ -13,7 +13,7 @@ class UsersController < ApplicationController
       redirect_to profile_path
     else
       flash[:error] = "Oh no! Something went wrong. Please try again."
-      redirect_to edit_user_path
+      redirect_to profile_path
     end
   end
 
