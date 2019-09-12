@@ -46,7 +46,22 @@ img {
   border-radius: 175px;
 }
 
-
 .label-style {
    color: black;
  }
+
+.card-content {
+ 	border: 4px;
+  background-image: url("event_background.png");
+ 	box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12);
+ }
+
+.card-header {
+  color: black;
+}
+
+.delete-event input[type=submit]{
+  background-color: gray;
+  color: white;
+}
+

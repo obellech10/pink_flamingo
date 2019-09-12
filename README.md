@@ -3,10 +3,10 @@
 Our team designed the Pink Flamingo app over 10 days with community in mind. With work schedules and job relocation forcing people to move more frequently, it can be hard to build relationships with the people right down the street. Pink Flamingo is meant to make this task easier! Our app allows you to schedule parties, invite members within a radius of your choosing. Guest can see the events in their area, RSVP and all members will be texted reminders as the party gets closer.
 
 Meet the Pink Flamingo Team:
-[Jori Peterson](https://github.com/JoriPeterson)
-[Oscar Bellechasse](https://github.com/obellech10)
-[Paul Schlattmann](https://github.com/pschlatt)
-[Mills Provosty](https://github.com/MillsProvosty)
+- [Jori Peterson](https://github.com/JoriPeterson)
+- [Oscar Bellechasse](https://github.com/obellech10)
+- [Paul Schlattmann](https://github.com/pschlatt)
+- [Mills Provosty](https://github.com/MillsProvosty)
 
 [Click Here to use Pink Flamingo](https://aqueous-plains-17600.herokuapp.com/)
 

@@ -22,5 +22,6 @@ describe "As a logged in User" do
     expect(current_path).to eq(profile_path)
     expect(page).to have_content("123 New St")
     expect(page).to have_content(80021)
+
   end
 end
