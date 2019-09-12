@@ -4,32 +4,76 @@
     <title>PinkFlamingo</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    <%= stylesheet_link_tag "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" %>
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
+
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-6jHF7Z3XI3fF4XZixAuSu0gGKrXwoX/w3uFPxC56OtjChio7wtTGJWRW53Nhx6Ev" crossorigin="anonymous">
+
+    <link href="https://blackrockdigital.github.io/startbootstrap-one-page-wonder/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
+
+    <link href="https://blackrockdigital.github.io/startbootstrap-one-page-wonder/css/one-page-wonder.min.css" rel="stylesheet">
+
+    <style type="text/css">@import url(https://fonts.googleapis.com/css?family=Lato:300,400,700,900);</style>
+    <style type="text/css">@font-face { font-family: 'simple-line-icons'; src: url('chrome-extension://mihdfbecejheednfigjpdacgeilhlmnf/assets/fonts/Simple-Line-Icons.ttf') format('truetype'); }</style>
   </head>
-
   <body>
-    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e61ea4; border-bottom: 5px solid #e61ea4; font-weight: bold; margin-bottom: 30px;">
-	    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-	        <span class="navbar-toggler-icon"></span>
-	    </button>
-	    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-	      <div class="navbar-nav">
-	        <a class="nav-item nav-link" <%= link_to 'Home', root_path %>
-	        <a class="nav-item nav-link" <%= link_to 'Profile', profile_path if current_user %>
-	        <a class="nav-item nav-link" <%= link_to 'Events', events_path if current_user && !current_user.address.nil? %>
-
-	        <a class="nav-item nav-link" <%= link_to 'Logout', logout_path if current_user %>
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
+      <div class="container">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-item nav-link" style="font-size: 15px;" <%= link_to 'Home', root_path %>
+            </li>
+            <li class="nav-item">
+              <a class="nav-item nav-link" style="font-size: 15px;" <%= link_to 'Profile', profile_path if current_user %>
+            </li >
+            <li class="nav-item">
+              <a class="nav-item nav-link" style="font-size: 15px;" <%= link_to 'Events', events_path if current_user && !current_user.address.nil? %>
+            <li class="nav-item">
+              <a class="nav-item nav-link" style="font-size: 15px;" <%= link_to 'Logout', logout_path if current_user %>
+            </li>
+          </ul>
         </div>
       </div>
     </nav>
 
     <div class="flash-message">
-        <% flash.each do |name, msg| %>
-          <%= content_tag :div, msg, class: name %>
-        <% end %>
-      </div>
+      <% flash.each do |name, msg| %>
+        <%= content_tag :div, msg, class: name %>
+      <% end %>
+    </div>
     <%= yield %>
+
+    <footer class="py-5 bg-black">
+      <div class="container">
+        <p class="m-0 text-center text-white small">Copyright © Pink Flamingo 2019</p>
+      </div>
+    <!-- /.container -->
+    </footer>
+
+    <script src="https://blackrockdigital.github.io/startbootstrap-one-page-wonder/vendor/jquery/jquery.min.js"></script>
+    <script src="https://blackrockdigital.github.io/startbootstrap-one-page-wonder/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <script async="" id="dsq-count-scr" src="//startbootstrap.disqus.com/count.js" type="text/javascript"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous" type="text/javascript"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.bundle.min.js" integrity="sha384-zDnhMsjVZfS3hiP7oCBRmfjkQC4fzxVxFhBx8Hkz2aZX8gEvA/jsP3eXRCvzTofP" crossorigin="anonymous" type="text/javascript"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.lazy/1.7.9/jquery.lazy.plugins.min.js"></script>
+    <script src="/assets/js/scripts.js" type="text/javascript"></script>
+    <script type="text/javascript">
+    $("#desktopToggle").on('click', function(e) {
+      e.preventDefault();
+      $(".iframe-preview").removeClass("iframe-preview-mobile");
+    });
+    $("#mobileToggle").on('click', function(e) {
+      e.preventDefault();
+      $(".iframe-preview").addClass("iframe-preview-mobile");
+    });
+  </script>
   </body>
 </html>
