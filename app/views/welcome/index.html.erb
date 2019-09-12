@@ -2,11 +2,12 @@
   <div class="wrap-welcome">
     <div class="masthead-content">
       <img src="https://files.slack.com/files-pri/T029P2S9M-FN9EG4Z8D/screen_shot_2019-09-11_at_10.17.38_pm.png" alt="logo"><br><br>
-      <div class="container">
+      <!-- <div class="container"> -->
         <h2 class="masthead-subheading mb-0">An app to bring you closer to your community</h2>
-      </div>
+      <!-- </div> -->
     </div>
     <br>
+    <div class="container">
     <% unless current_user %>
       <br>
       <%= button_to 'Connect via Facebook', facebook_login_path, method: :get %>
@@ -14,7 +15,6 @@
       <%= button_to 'Connect via Google', '/auth/google_oauth2', method: :get %>
     <% end %>
     <br>
-    <div class="container">
       <br>
       <p class="masthead-subheading mb-0" style="font-size: 20px;">What is Pink Flamingo?<br>
         <br>
