@@ -1,50 +1,50 @@
-<h1><%= @event.title %></h1>
+<header class="masthead text-center text-white">
+  <div class="masthead-content">
+    <h2 class="masthead-subheading mb-0"><%= @event.title %></h2>
+    <div><br>
+      <h2>Date: <%= @event.date %></h2>
+      <h2>Time: <%= @event.time %></h2>
+      <h2>Address: <%= @event.address %></h2>
+      <h2>Type: <%= @event.event_type %></h2>
+      <h2>Bring Food? <%= @event.food %></h2>
+      <h2>Bring Booze? <%= @event.booze %></h2>
+      <h2>Special restrictions: <%= @event.restrictions %></h2>
+    </div><br>
 
-<section>
-  <div>
-    <p>Date: <%= @event.date %></p>
-    <p>Time: <%= @event.time %></p>
-    <p>Address: <%= @event.address %></p>
-    <p>Type: <%= @event.event_type %></p>
-    <p>Bring Food? <%= @event.food %></p>
-    <p>Bring Booze? <%= @event.booze %></p>
-    <p>Special restrictions: <%= @event.restrictions %></p>
-  </div>
-
-  <div class='rsvp_list'>
-  <p>Who's RSVP'd:</p>
-    <% @event_attendees.each do |event_attendee| %>
-      <p> <%= event_attendee.name %> Reply: <%= event_attendee.rsvp %> Number of guests: <%= event_attendee.number_of_guests %></p>
-    <% end %>
-  </div>
-
-  <% if current_user.id != @event.user_id %>
-  <div class='rsvp'>
-  <% if @event_attendees == [] %>
-    <%= render partial: "rsvp", locals: { path: event_event_attendees_path(@event.id), method: :post, button_text: "RSVP"} %>
-  <% else %>
-    <% @event_attendees.each do |event_attendee| %>
-      <% if event_attendee.user_id == current_user.id  %>
-        <%= render partial: "rsvp", locals: { path: event_event_attendee_path(@event.id, event_attendee.id), method: :patch, button_text: "Edit RSVP" } %>
-      <% else %>
-        <%= render partial: "rsvp", locals: { path: event_event_attendees_path(@event.id), method: :post, button_text: "RSVP"} %>
+    <div class='rsvp_list' style= "font-size: 20px;"><br>
+      <h2>Who's RSVP'd:</h2>
+      <% @event_attendees.each do |event_attendee| %>
+        <p><%= event_attendee.name %> Reply: <%= event_attendee.rsvp %> Number of guests: <%= event_attendee.number_of_guests %></p>
       <% end %>
+    </div><br>
+
+    <% if current_user.id != @event.user_id %>
+    <div class='rsvp' style= "font-size: 20px;">
+      <% if @event_attendees == [] %>
+        <%= render partial: "rsvp", locals: { path: event_event_attendees_path(@event.id), method: :post, button_text: "RSVP"} %>
+      <% else %>
+        <% @event_attendees.each do |event_attendee| %>
+          <% if event_attendee.user_id == current_user.id  %>
+            <%= render partial: "rsvp", locals: { path: event_event_attendee_path(@event.id, event_attendee.id), method: :patch, button_text: "Edit RSVP" } %>
+          <% else %>
+            <%# <%= render partial: "rsvp", locals: { path: event_event_attendees_path(@event.id), method: :post, button_text: "RSVP"} %> %>
+          <% end %>
+        <% end %>
+      <% end %>
+    </div><br>
     <% end %>
-  <% end %>
-</div>
-<% end %>
 
-<div>
-   <% if current_user.id == @event.user_id %>
-     <%= button_to "Edit Event", edit_event_path(@event), method: :get %>
-   <% end %>
- </div>
+    <div><br>
+      <% if current_user.id == @event.user_id %>
+        <%= button_to "Edit Event", edit_event_path(@event), method: :get %>
+      <% end %>
+    </div><br>
 
-  <iframe class='location_map'
-    width="600"
-    height="450"
-    frameborder="0" style="border:0"
-    src= "https://www.google.com/maps/embed/v1/place?key=<%= facade.key_location %>" allowfullscreen>
-  </iframe>
-
-</section>
+    <iframe class='location_map'
+      width="600"
+      height="450"
+      frameborder="0" style="border:0"
+      src= "https://www.google.com/maps/embed/v1/place?key=<%= facade.key_location %>" allowfullscreen>
+    </iframe>
+  </div>
+</header>
