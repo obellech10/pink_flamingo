@@ -15,8 +15,7 @@ RSpec.describe 'As a user' do
 
       expect(current_path).to eq(profile_path)
 
-      expect(page).to have_content("Events in Your Neighborhood")
-      click_link 'Events in Your Neighborhood'
+      click_link 'Events'
 
       expect(page).to have_content("Nearby Events")
 

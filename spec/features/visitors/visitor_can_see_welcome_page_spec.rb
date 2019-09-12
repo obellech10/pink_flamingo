@@ -6,7 +6,6 @@ RSpec.describe 'As a visitor' do
 
     expect(current_path).to eq(root_path)
 
-    expect(page).to have_link("What is it?")
     expect(page).to have_content("An app to bring you closer to your community")
 
   end
