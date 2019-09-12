@@ -1,11 +1,17 @@
 <header class="masthead text-center text-white">
-  <div class="wrap">
+  <div class="row"><div class="wrap">
     <div class="masthead-content">
       <div class="user-profile", style="font-size: 25px;"">
         <main>
           <h1>Fill Out Your Profile:</h1>
           <div>
+
+            <div class="row">
+            <div class="col-xl ">
+            <div class="col-xl container4" style="align-content: center; flex-wrap: wrap;">
+            <div class="text-center shadow-lg p-3 mb-5 bg- rounded" >
             <div class="label-style">
+
             <%= form_for @user, url: user_path(current_user), method: :patch do |form| %>
               <div>
               <br>
@@ -42,8 +48,13 @@
             <% end %>
             </div>
           </div>
+          </div>
+          </div>
+          </div>
+          </div>
         </main>
       </div>
     </div>
+  </div>
   </div>
 </header>
