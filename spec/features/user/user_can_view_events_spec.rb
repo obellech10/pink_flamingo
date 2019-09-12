@@ -21,6 +21,8 @@ describe "As a user on the Events Index page" do
       expect(page).to have_content("Football Watch Party")
 
       expect(page).to have_css('.location_map')
+      expect(page).to have_content("Bring Food? Yes")
+      expect(page).to have_content("Bring Booze? Yes")
     end
   end
 end

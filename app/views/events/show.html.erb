@@ -2,13 +2,15 @@
   <div class="masthead-content">
     <h2 class="masthead-subheading mb-0"><%= facade.specific_event.title %></h2>
     <div><br>
+
       <h2>Date: <%= facade.specific_event.date %></h2>
       <h2>Time: <%= facade.specific_event.time %></h2>
       <h2>Address: <%= facade.specific_event.address %></h2>
       <h2>Type: <%= facade.specific_event.event_type %></h2>
-      <h2>Bring Food? <%= facade.specific_event.food %></h2>
-      <h2>Bring Booze? <%= facade.specific_event.booze %></h2>
+      <h2>Bring Food? <%= boolean_to_words(facade.specific_event.food) %></h2>
+      <h2>Bring Booze? <%= boolean_to_words(facade.specific_event.booze) %></h2>
       <h2>Special restrictions: <%= facade.specific_event.restrictions %></h2>
+
     </div><br>
 
     <div class='rsvp_list' style= "font-size: 20px;"><br>
@@ -29,10 +31,12 @@
           <% else %>
              <%= render partial: "rsvp", locals: { path: event_event_attendees_path(facade.specific_event.id), method: :post, button_text: "RSVP"} %>
           <% end %>
+
         <% end %>
       <% end %>
-    </div><br>
+      </div><br>
     <% end %>
+    </div>
 
     <div><br>
       <% if current_user.id == facade.specific_event.user_id %>

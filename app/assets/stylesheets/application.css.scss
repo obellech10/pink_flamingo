@@ -5,18 +5,18 @@
   height: 100vh;
   width: 100%;
   padding: 20px;
-  display:flex;
+  display: flex;
   flex-direction:column;
   justify-content: space-between;
 }
 
-.wrap-welcome {
-  height: 100vh;
-  width: 100%;
-  padding: 20px;
-  display:flex;
-  flex-direction:column;
-}
+// .wrap-welcome {
+//   width: 100%;
+//   padding: 20px;
+//   display: flex;
+//   flex-direction:column;
+//   justify-content: space-between;
+// }
 
 input[type=submit] {
   background-color: white;
@@ -46,6 +46,10 @@ img {
   border-radius: 175px;
 }
 
+.label-style {
+   color: black;
+ }
+
 .card-content {
  	border: 4px;
   background-image: url("event_background.png");
@@ -60,3 +64,4 @@ img {
   background-color: gray;
   color: white;
 }
+

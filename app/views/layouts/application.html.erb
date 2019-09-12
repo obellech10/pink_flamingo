@@ -20,34 +20,45 @@
     <style type="text/css">@font-face { font-family: 'simple-line-icons'; src: url('chrome-extension://mihdfbecejheednfigjpdacgeilhlmnf/assets/fonts/Simple-Line-Icons.ttf') format('truetype'); }</style>
   </head>
   <body>
-    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
-      <div class="container">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-              <a class="nav-item nav-link" style="font-size: 15px;" <%= link_to 'Home', root_path %>
-            </li>
-            <li class="nav-item">
-              <a class="nav-item nav-link" style="font-size: 15px;" <%= link_to 'Profile', profile_path if current_user %>
-            </li >
-            <li class="nav-item">
-              <a class="nav-item nav-link" style="font-size: 15px;" <%= link_to 'Events', events_path if current_user && !current_user.address.nil? %>
-            <li class="nav-item">
-              <a class="nav-item nav-link" style="font-size: 15px;" <%= link_to 'Logout', logout_path if current_user %>
-            </li>
-          </ul>
+    <% if current_user  %>
+      <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
+        <div class="container">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                <a class="nav-item nav-link" style="font-size: 15px;" <%= link_to 'Home', root_path if current_user %>
+              </li>
+              <li class="nav-item">
+                <a class="nav-item nav-link" style="font-size: 15px;" <%= link_to 'Profile', profile_path if current_user %>
+              </li >
+              <li class="nav-item">
+                <a class="nav-item nav-link" style="font-size: 15px;" <%= link_to 'Events', events_path if current_user && !current_user.address.nil? %>
+              <li class="nav-item">
+                <a class="nav-item nav-link" style="font-size: 15px;" <%= link_to 'Logout', logout_path if current_user %>
+              </li>
+            </ul>
+            <% if flash[:success] %>
+              <div class="alert alert-success" style="position: absolute;
+              left: 50px;">
+              <button type="button" class="close" data-dismiss="alert">&times;</button>
+              <%= flash[:success] %>
+              </div>
+            <% elsif flash[:error] %>
+              <div class="alert alert-warning" style="position: absolute;
+              left: 50px;">
+              <button type="button" class="close" data-dismiss="alert">&times;</button>
+              <%= flash[:error] %>
+              </div>
+            <% end %>
+          </div>
+          <img src="https://files.slack.com/files-pri/T029P2S9M-FN9EG4Z8D/screen_shot_2019-09-11_at_10.17.38_pm.png" style="width: 4%; position: absolute;
+            right: 50px;" alt="logo">
         </div>
-      </div>
-    </nav>
-
-    <div class="flash-message">
-      <% flash.each do |name, msg| %>
-        <%= content_tag :div, msg, class: name %>
-      <% end %>
-    </div>
+      </nav>
+    <% end %>
     <%= yield %>
 
     <footer class="py-5 bg-black">
