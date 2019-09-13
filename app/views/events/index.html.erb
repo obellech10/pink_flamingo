@@ -7,8 +7,6 @@
         <div class="container-fluid">
           <div class="row">
 
-
-          <% cache(action: "index", action_suffix: "event_list") do %>
           <% @events.each do |event| %>
               <div class="col-md-12 p-3">
                 <% if facade.user_within_event_radius(current_user.address, event.address, event.radius) %>
@@ -25,7 +23,6 @@
                 </div>
               <% end %>
             <% end %>
-          <% end %>
           </div>
         </div>
       </section>
