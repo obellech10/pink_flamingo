@@ -9,7 +9,7 @@
 
 
           <% cache(action: "index", action_suffix: "event_list") do %>
-          <% facade.all_events.each do |event| %>
+          <% @events.each do |event| %>
               <div class="col-md-12 p-3">
                 <% if facade.user_within_event_radius(current_user.address, event.address, event.radius) %>
                   <div class="card-content style="background-image:<%= image_path("flamingo_logo.png")%>;"" id='event-<%= event.id %>'>
