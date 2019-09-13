@@ -22,7 +22,7 @@ class EventsController < ApplicationController
   end
 
   def index
-    @event = Event.all
+    @events = Event.all
     render locals: {
       facade: LocalEventsFacade.new
     }
