@@ -12,7 +12,7 @@
           <% facade.all_events.each do |event| %>
               <div class="col-md-12 p-3">
                 <% if facade.user_within_event_radius(current_user.address, event.address, event.radius) %>
-                  <div class="card-content" id='event-<%= event.id %>'>
+                  <div class="card-content style="background-image:<%= image_path("flamingo_logo.png")%>;"" id='event-<%= event.id %>'>
                     <div class="card-header">
                       <h1 class="card-title text-center"><%= link_to event.title, event_path(event.id) %></h1>
                       <h1 class="date"><%= event.date %></h1>

@@ -2,7 +2,7 @@
 @import "bootstrap";
 
 .wrap {
-  height: 100vh;
+  // height: 100vh;
   width: 100%;
   padding: 20px;
   display: flex;
@@ -12,6 +12,7 @@
 
 .wrap-welcome {
   width: 100%;
+  // height: 100vh;
   padding: 20px;
   display: flex;
   flex-direction:column;
@@ -58,9 +59,14 @@ img {
 
 .card-header {
   color: black;
+  width: inherit;
 }
 
 .delete-event input[type=submit]{
   background-color: gray;
   color: white;
+}
+
+.container-fluid {
+  width: 100%;
 }

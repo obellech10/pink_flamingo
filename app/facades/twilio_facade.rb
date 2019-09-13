@@ -11,7 +11,7 @@ class TwilioFacade
       #Event Cancelled
       message = "~PinkFlamingo~ An event you've planned on going to has been cancelled! :("
     end
-    conn = Faraday.new(url: "http://localhost:4567") do |f|
+    conn = Faraday.new(url: "https://morning-reaches-08668.herokuapp.com") do |f|
     f.params["send"] = 'true'
     f.params["to"] = '+1' + number
     f.params["body"] = message
