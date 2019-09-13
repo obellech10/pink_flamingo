@@ -1,22 +1,10 @@
 <header class="masthead text-center text-white">
   <div class="masthead-content">
-    <h2 class="masthead-subheading mb-0"><%= facade.specific_event.title %></h2>
-    <div><br>
+    <div>
 
-      <h2>Date: <%= facade.specific_event.date %></h2>
-      <h2>Time: <%= facade.specific_event.time %></h2>
-      <h2>Address: <%= facade.specific_event.address %></h2>
-      <h2>Type: <%= facade.specific_event.event_type %></h2>
-      <h2>Bring Food? <%= boolean_to_words(facade.specific_event.food) %></h2>
-      <h2>Bring Booze? <%= boolean_to_words(facade.specific_event.booze) %></h2>
-      <h2>Special restrictions: <%= facade.specific_event.restrictions %></h2>
-
-    </div><br>
-
-    <div class='rsvp_list' style= "font-size: 20px;"><br>
-      <h2>Who's RSVP'd:</h2>
-      <% facade.event_attendees.each do |event_attendee| %>
-        <p><%= event_attendee.name %> Reply: <%= event_attendee.rsvp %> Number of guests: <%= event_attendee.number_of_guests %></p>
+      <h2 class="masthead-subheading mb-0"><%= facade.specific_event.title %></h2>
+      <% if current_user.id == facade.specific_event.user_id %>
+        <%= button_to "Edit Event", edit_event_path(facade.specific_event), method: :get %>
       <% end %>
     </div><br>
 
@@ -40,19 +28,52 @@
       <% end %>
       </div><br>
     <% end %>
+
+    <div class="text-left shadow-lg p-3 mb-5 bg- rounded" >
+
+<div class="container-fluid">
+    <div class="row">
+
+      <div class="col-xl ">
+
+      <div class="text-left shadow-lg p-3 mb-5 bg- rounded" >
+        <h1> Date: <%= facade.specific_event.date %></h1>
+        <h1> Time: <%= facade.specific_event.time %></h1>
+        <h1> Address: <%= facade.specific_event.address %></h1>
+        <h1> Type: <%= facade.specific_event.event_type %></h1>
+        <h1> Bring Food? <%= boolean_to_words(facade.specific_event.food) %></h1>
+        <h1> Bring Booze? <%= boolean_to_words(facade.specific_event.booze) %></h1>
+        <h1> Special restrictions: <%= facade.specific_event.restrictions %></h1>
+      </div>
+  </div>
+
+      <div class="col-xl">
+        <div class="rounded-circle location_map">
+        <iframe class='rounded'
+          width="600"
+          height="450"
+          frameborder="0" style="border:0"
+          src= "https://www.google.com/maps/embed/v1/place?key=<%= facade.key_location %>" allowfullscreen>
+        </iframe></div>
     </div>
 
-    <div><br>
-      <% if current_user.id == facade.specific_event.user_id %>
-        <%= button_to "Edit Event", edit_event_path(facade.specific_event), method: :get %>
-      <% end %>
-    </div><br>
-
-    <iframe class='location_map'
-      width="600"
-      height="450"
-      frameborder="0" style="border:0"
-      src= "https://www.google.com/maps/embed/v1/place?key=<%= facade.key_location %>" allowfullscreen>
-    </iframe>
   </div>
+  <div class='rsvp_list' style= "font-size: 20px;"><br>
+    <h2>Who's RSVP'd:</h2>
+    <% facade.event_attendees.each do |event_attendee| %>
+      <p><%= event_attendee.name %> Reply: <%= event_attendee.rsvp %> Number of guests: <%= event_attendee.number_of_guests %></p>
+    <% end %>
+    </div>
+  </div><br>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
 </header>

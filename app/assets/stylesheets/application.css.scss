@@ -10,13 +10,13 @@
   justify-content: space-between;
 }
 
-// .wrap-welcome {
-//   width: 100%;
-//   padding: 20px;
-//   display: flex;
-//   flex-direction:column;
-//   justify-content: space-between;
-// }
+.wrap-welcome {
+  width: 100%;
+  padding: 20px;
+  display: flex;
+  flex-direction:column;
+  justify-content: space-between;
+}
 
 input[type=submit] {
   background-color: white;
@@ -64,4 +64,3 @@ img {
   background-color: gray;
   color: white;
 }
-

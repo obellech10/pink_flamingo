@@ -1,18 +1,12 @@
 <header class="masthead text-center text-white">
   <div class="wrap-welcome">
     <div class="masthead-content">
-<<<<<<< HEAD
       <img src="<%= image_path("flamingo_logo.png")%>" alt="logo"><br><br>
       <div class="container">
-=======
-      <img src="https://files.slack.com/files-pri/T029P2S9M-FN9EG4Z8D/screen_shot_2019-09-11_at_10.17.38_pm.png" alt="logo"><br><br>
-      <!-- <div class="container"> -->
->>>>>>> d8020fee5c46f16b2bf7cff9a69ce77c2e177cae
         <h2 class="masthead-subheading mb-0">An app to bring you closer to your community</h2>
-      <!-- </div> -->
+      </div>
     </div>
     <br>
-    <div class="container">
     <% unless current_user %>
       <br>
       <%= button_to 'Connect via Facebook', facebook_login_path, method: :get %>
@@ -20,12 +14,13 @@
       <%= button_to 'Connect via Google', '/auth/google_oauth2', method: :get %>
     <% end %>
     <br>
-      <br>
+    <div class="container">
+    <br>
       <p class="masthead-subheading mb-0" style="font-size: 20px;">What is Pink Flamingo?<br>
-        <br>
+      <br>
         Our team designed the Pink Flamingo app with community in mind. With work schedules and job relocation forcing people to move more frequently, it can be hard to build relationships with the people right down the street. Let Pink Flamingo make this task easier! Pink Flamingo takes away the awkward first step of knocking on doors or cold calling neighbors you haven't met yet. Our app allows you to schedule casual gatherings at your home and invite everyone within a radius of your choosing. Guests can see the events in their area, RSVP and all members will be texted reminders as the party gets closer.<br>
         <br>
         For more spontaneous hang outs, Pink Flamingo offers a "Flock Party" option. For a low subscription of $5.99 a month, place your own Pink Flamingo outside of your house to let people know you are around and open to visitors. The Pink Flamingo's GPS tracking system will alert users that there is a "Flock Party" in session. If you decide to move the party down the street to another neighbor's house, just take your Pink Flamingo with you to let people know where they can catch up with the group!</p><br>
-    </div><br>
-  </div><br><br>
+    </div>
+  </div>
 </header>

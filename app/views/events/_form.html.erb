@@ -1,41 +1,53 @@
-<div class="label-style">
-  <%= form_for @event do |form| %>
-    <div>
-      <%= form.label :title %>
-      <%= form.text_field :title %>
+  <section>
+
+    <div class="col-xl ">
+    <div class="col-xl container4" style="align-content: center; flex-wrap: wrap;">
+    <div class="text-center shadow-lg p-3 mb-5 bg- rounded label-style" >
+    <%= form_for @event do |form| %>
+      <div>
+        <h2><%= form.label :title %></h2>
+        <h2><%= form.text_field :title %></h2>
+      </div>
+      <div>
+        <h2><%= form.label :date %></h2>
+        <h2><%= form.text_field :date %></h2>
+      </div>
+      <div>
+        <h2><%= form.label :time %></h2>
+        <h2><%= form.text_field :time %></h2>
+      </div>
+      <div>
+        <h2><%= form.label :address %></h2>
+        <h2><%= form.text_field :address %></h2>
+      </div>
+      <div>
+        <h2><%= form.label :event_type %></h2>
+        <h2><%= form.text_field :event_type %></h2>
+      </div>
+      <div>
+        <h2><%= form.label :restrictions %></h2>
+        <h2><%= form.text_field :restrictions %></h2>
+      </div>
+      <div>
+        <h2><%= form.label :radius_in_miles %></h2>
+        <h2><%= form.text_field :radius %></h2>
+      </div>
+      <div>
+        <h2><%= form.label :food %>    <%= form.check_box :food %></h2>
+      </div>
+      <div>
+        <h2><%= form.label :booze %>    <%= form.check_box :booze %></h2>
+      </div>
+      <%= form.submit %>
+    <% end %>
+
     </div>
-    <div>
-      <%= form.label :date %>
-      <%= form.text_field :date %>
+
     </div>
-    <div>
-      <%= form.label :time %>
-      <%= form.text_field :time %>
     </div>
-    <div>
-      <%= form.label :address %>
-      <%= form.text_field :address %>
-    </div>
-    <div>
-      <%= form.label :event_type %>
-      <%= form.text_field :event_type %>
-    </div>
-    <div>
-      <%= form.label :food %>
-      <%= form.check_box :food %>
-    </div>
-    <div>
-      <%= form.label :booze %>
-      <%= form.check_box :booze %>
-    </div>
-    <div>
-      <%= form.label :restrictions %>
-      <%= form.text_field :restrictions %>
-    </div>
-    <div>
-      <%= form.label :radius_in_miles %>
-      <%= form.text_field :radius %>
-    </div>
-    <%= form.submit %>
-  <% end %>
+
+
+
+  </section>
+  </main>
 </div>
