@@ -13,7 +13,7 @@ RSpec.describe 'As a visitor' do
   it 'and view my login options' do
     visit '/'
 
-    expect(page).to have_button('Connect via Google')
-    expect(page).to have_button('Connect via Facebook')
+    expect(page).to have_css(".fb-login-button")
+    expect(page).to have_css(".g-signin2")
   end
 end

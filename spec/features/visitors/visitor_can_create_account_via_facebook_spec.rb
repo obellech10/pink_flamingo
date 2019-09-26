@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe 'User login' do
-	it 'can sign in using Facebook'do
+	xit 'can sign in using Facebook'do
 		stub_omniauth
 
     visit '/'
