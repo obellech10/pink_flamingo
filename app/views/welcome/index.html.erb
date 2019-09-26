@@ -12,10 +12,10 @@
     <br>
     <% unless current_user %>
       <br>
-      <div class="fb-login-button" data-width="" data-size="large" data-button-type="continue_with" data-auto-logout-link="false" data-use-continue-as="false"><%= facebook_login_path, method: :get %></div>
+      <div class="fb-login-button" data-width="" data-size="large" data-button-type="continue_with" data-auto-logout-link="false" data-use-continue-as="false"><%= link_to facebook_login_path, method: :get %></div>
       <br>
       <meta name="google-signin-client_id" content="<%="#{ENV['GOOGLE_CLIENT_ID']}"%>">
-      <div class="g-signin2" data-width="250" data-height="40" data-longtitle="true" style="margin: auto;" data-onsuccess="onSignIn"><%= "/auth/google_oauth2", method: :get %> </div>
+      <div class="g-signin2" data-width="250" data-height="40" data-longtitle="true" style="margin: auto;" data-onsuccess="onSignIn"><%= link_to "/auth/google_oauth2", method: :get %> </div>
 
     <% end %>
     <br>
