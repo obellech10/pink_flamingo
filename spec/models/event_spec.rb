@@ -12,4 +12,14 @@ RSpec.describe Event, type: :model do
 		it {should belong_to :user}
 		it {should have_many :event_attendees}
 	end
+
+  describe '#host_name' do
+    it "returns the host's name" do
+      user = create(:user)
+      event = create(:event, user_id: user.id)
+
+      expect(event.host_name).to eq('Baxter McDog')
+    end
+  end
+
 end
