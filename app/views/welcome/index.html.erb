@@ -14,7 +14,7 @@
       <br>
       <div class="fb-login-button" data-width="" data-size="large" data-button-type="continue_with" data-auto-logout-link="false" data-use-continue-as="false"></div>
       <br>
-      <meta name="google-signin-client_id" content="#{ENV['GOOGLE_CLIENT_ID']}.apps.googleusercontent.com">
+      <meta name="google-signin-client_id" content="<%="#{ENV['GOOGLE_CLIENT_ID']}"%>.apps.googleusercontent.com">
       <div class="g-signin2" data-width="250" data-height="40" data-longtitle="true" style="margin: auto;" data-onsuccess="onSignIn"></div>
 
     <% end %>
