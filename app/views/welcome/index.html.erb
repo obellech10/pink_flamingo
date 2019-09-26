@@ -1,7 +1,4 @@
 <header class="masthead text-center text-white">
-  <div id="fb-root"></div>
-<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v4.0&appId=2933855903506907&autoLogAppEvents=1"></script>
-<script src="https://apis.google.com/js/platform.js" async defer></script>
   <div class="wrap-welcome">
     <div class="masthead-content">
       <img src="<%= image_path("flamingo_logo.png")%>" alt="logo"><br><br>
@@ -12,11 +9,9 @@
     <br>
     <% unless current_user %>
       <br>
-      <div class="fb-login-button" data-width="" data-size="large" data-button-type="continue_with" data-auto-logout-link="false" data-use-continue-as="false"><% link_to facebook_login_path, method: :get %></div>
+      <%= button_to 'Connect via Facebook', facebook_login_path, method: :get %>
       <br>
-      <meta name="google-signin-client_id" content="<%="#{ENV['GOOGLE_CLIENT_ID']}"%>">
-      <div class="g-signin2" data-width="250" data-height="40" data-longtitle="true" style="margin: auto;" data-onsuccess="onSignIn"><% link_to "/auth/google_oauth2/callback", method: :get %> </div>
-
+      <%= button_to 'Connect via Google', '/auth/google_oauth2', method: :get %>
     <% end %>
     <br>
     <div class="container">
@@ -25,7 +20,7 @@
       <br>
         Our team designed the Pink Flamingo app with community in mind. With work schedules and job relocation forcing people to move more frequently, it can be hard to build relationships with the people right down the street. Let Pink Flamingo make this task easier! Pink Flamingo takes away the awkward first step of knocking on doors or cold calling neighbors you haven't met yet. Our app allows you to schedule casual gatherings at your home and invite everyone within a radius of your choosing. Guests can see the events in their area, RSVP and all members will be texted reminders as the party gets closer.<br>
         <br>
-        For more spontaneous hang outs, Pink Flamingo offers a "Flock Party" option. Place your own Pink Flamingo outside of your house to let people know you are around and open to visitors. The Pink Flamingo's GPS tracking system will alert users that there is a "Flock Party" in session. If you decide to move the party down the street to another neighbor's house, just take your Pink Flamingo with you to let people know where they can catch up with the group!</p><br>
+        For more spontaneous hang outs, Pink Flamingo offers a "Flock Party" option. For a low subscription of $5.99 a month, place your own Pink Flamingo outside of your house to let people know you are around and open to visitors. The Pink Flamingo's GPS tracking system will alert users that there is a "Flock Party" in session. If you decide to move the party down the street to another neighbor's house, just take your Pink Flamingo with you to let people know where they can catch up with the group!</p><br>
     </div>
   </div>
 </header>
