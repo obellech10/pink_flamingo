@@ -1,12 +1,8 @@
 class User < ApplicationRecord
   validates_presence_of :name
-
-
-
   has_many :events
   has_many :event_attendees
   has_many :credentials
-
 
   def self.create_with_omniauth(auth)
     if auth[:provider] == "facebook"

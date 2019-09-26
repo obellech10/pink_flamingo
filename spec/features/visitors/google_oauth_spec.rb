@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe 'As a visitor on the dashboard page' do
-  xit "I see a button to login through google" do
+  it "I see a button to login through google" do
     stub_omniauth
 
     visit root_path
