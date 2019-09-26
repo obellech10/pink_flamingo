@@ -11,11 +11,5 @@ class Credential < ApplicationRecord
     else
       info = "info"
     end
-
-    find_or_create_by(
-      uid: auth["uid"],
-      provider: auth["provider"],
-      token: auth["#{info}"]["token"]
-      )
   end
 end
