@@ -8,7 +8,7 @@ Meet the Pink Flamingo Team:
 - [Paul Schlattmann](https://github.com/pschlatt)
 - [Mills Provosty](https://github.com/MillsProvosty)
 
-[Click Here to use Pink Flamingo](https://aqueous-plains-17600.herokuapp.com/)
+[Click Here to use Pink Flamingo](https://pinkflamingoapp.herokuapp.com/)
 
 ## Built Using
 
